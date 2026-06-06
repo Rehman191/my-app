@@ -6,7 +6,7 @@ export default function About() {
       <div className="container">
         <div className="about__grid">
           {/* Image side */}
-          <div className="about__images">
+          <div className="about__images reveal-fade-right">
             <div className="about__img-main-wrap">
               <img src="/images/about-main.png" alt="Mineral sourcing in Pakistan" className="about__img-main"/>
               {/* Orange frame accent */}
@@ -24,20 +24,21 @@ export default function About() {
           </div>
 
           {/* Text side */}
-          <div className="about__text">
+          <div className="about__text reveal-fade-left">
             <span className="section-label">About Us</span>
             <h2 className="section-title">
-              Bringing Pakistan&apos;s <span className="about__heading-accent">Mineral Wealth</span> to the World
+              Pakistan&apos;s Leading Minerals <span className="about__heading-accent">Manufacturer &amp; Exporter</span>
             </h2>
             <span className="section-divider" />
-            <p className="about__para">
-              Founded in Pakistan&apos;s mineral-rich northern regions, <strong>Mineral Exp Int</strong> has been a
-              trusted name in premium mineral exports for over two decades. We specialize in sourcing, processing,
-              and exporting the finest gemstones, industrial minerals, and decorative rocks.
+            <p className="about__para pmi-highlight-text">
+              <strong>Mineral Exp International</strong> is a company based in Pakistan, established in 2004.
+              We are a diversified mineral export group operating across gemstones, industrial minerals,
+              Himalayan salt, and agricultural commodities — serving buyers in 50+ countries worldwide.
             </p>
             <p className="about__para">
-              Our deep relationships with responsible mines and state-of-the-art processing ensure every shipment
-              meets the highest international benchmarks — from laboratory testing to export certification.
+              We are counted among the trusted names in pink Himalayan salt, china clay, talc,
+              and precious gemstone exports from Pakistan. Our commitment to quality, compliance, and
+              client satisfaction has made us a preferred partner for importers across Europe, the Middle East, and Asia Pacific.
             </p>
 
             {/* Checklist */}
@@ -50,7 +51,7 @@ export default function About() {
               ].map((item) => (
                 <div className="about__check-item" key={item}>
                   <span className="about__check-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" width="11" height="11">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--dark-3)" strokeWidth="3" width="11" height="11">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   </span>
@@ -74,8 +75,8 @@ export default function About() {
             </div>
 
             <div className="about__actions">
-              <a href="#contact" className="btn btn-primary">Get in Touch</a>
-              <a href="#minerals" className="btn btn-outline-dark">View Minerals</a>
+              <a href="#contact" className="pmi-read-more">Get a Quote</a>
+              <a href="#minerals" className="pmi-read-more pmi-read-more--outline">Read More</a>
             </div>
           </div>
         </div>
@@ -113,7 +114,7 @@ export default function About() {
           right: -16px;
           width: 60%;
           height: 60%;
-          border: 3px solid #CD7530;
+          border: 3px solid var(--orange);
           border-radius: 4px;
           z-index: 0;
           pointer-events: none;
@@ -124,12 +125,12 @@ export default function About() {
           position: absolute;
           bottom: 20px;
           left: -24px;
-          background: #CD7530;
-          color: #ffffff;
+          background: var(--orange);
+          color: var(--dark-3);
           padding: 20px 24px;
           border-radius: 4px;
           text-align: center;
-          box-shadow: 0 8px 32px rgba(205,117,48,0.3);
+          box-shadow: 0 8px 32px rgba(220, 184, 75, 0.3);
           z-index: 3;
         }
         .about__badge-num {
@@ -138,7 +139,7 @@ export default function About() {
           font-weight: 700;
           font-size: 2.25rem;
           line-height: 1;
-          color: #ffffff;
+          color: var(--dark-3);
         }
         .about__badge-txt {
           display: block;
@@ -147,7 +148,7 @@ export default function About() {
           font-weight: 600;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.8);
+          color: rgba(48, 52, 57, 0.8);
           margin-top: 6px;
         }
 
@@ -171,7 +172,7 @@ export default function About() {
         }
 
         /* Text */
-        .about__heading-accent { color: #CD7530; }
+        .about__heading-accent { color: var(--orange); }
         .about__para {
           font-family: 'Manrope', sans-serif;
           font-size: 0.9625rem;
@@ -179,7 +180,7 @@ export default function About() {
           line-height: 1.85;
           margin-bottom: 16px;
         }
-        .about__para strong { color: #1d1d1d; font-weight: 700; }
+        .about__para strong { color: var(--color-heading); font-weight: 700; }
 
         .about__checklist {
           display: grid;
@@ -199,7 +200,7 @@ export default function About() {
         .about__check-icon {
           width: 20px;
           height: 20px;
-          background: #CD7530;
+          background: var(--orange);
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -225,13 +226,13 @@ export default function About() {
           transition: background 0.2s ease;
         }
         .about__stat:last-child { border-right: none; }
-        .about__stat:hover { background: rgba(205,117,48,0.04); }
+        .about__stat:hover { background: var(--orange-pale); }
         .about__stat strong {
           display: block;
           font-family: 'Poppins', sans-serif;
           font-weight: 700;
           font-size: 1.5rem;
-          color: #CD7530;
+          color: var(--orange);
           letter-spacing: -0.5px;
         }
         .about__stat span {

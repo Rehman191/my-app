@@ -71,7 +71,7 @@ export default function Features() {
       <div className="container">
         <div className="section-center" style={{ marginBottom: "60px" }}>
           <span className="section-label">Why Choose Us</span>
-          <h2 className="section-title">World-Class Mineral Export Services</h2>
+          <h2 className="section-title">Pakistan&apos;s Leading Mineral Export Services</h2>
           <span className="section-divider" />
           <p className="section-subtitle">
             Combining decades of geological expertise with modern logistics to deliver Pakistan&apos;s finest
@@ -80,24 +80,27 @@ export default function Features() {
         </div>
 
         <div className="features__grid">
-          {FEATURES.map((f, i) => (
-            <div className="feature-card" key={f.title}>
-              <div className="feature-card__icon-box">
-                {f.icon}
+          {FEATURES.map((f, i) => {
+            const delayClass = i % 3 === 1 ? " delay-100" : i % 3 === 2 ? " delay-200" : "";
+            return (
+              <div className={`feature-card reveal${delayClass}`} key={f.title}>
+                <div className="feature-card__icon-box">
+                  {f.icon}
+                </div>
+                <h3 className="feature-card__title">{f.title}</h3>
+                <p className="feature-card__desc">{f.desc}</p>
+                <div className="feature-card__more">
+                  <a href="#contact" className="feature-card__link">
+                    Learn More
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="13" height="13">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
-              <h3 className="feature-card__title">{f.title}</h3>
-              <p className="feature-card__desc">{f.desc}</p>
-              <div className="feature-card__more">
-                <a href="#contact" className="feature-card__link">
-                  Learn More
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="13" height="13">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+            );
+          })}
+      </div>
       </div>
 
       <style jsx>{`
@@ -121,14 +124,14 @@ export default function Features() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 3px;
-          background: #CD7530;
+          background: var(--orange);
           transform: scaleX(0);
           transition: transform 0.35s ease;
           transform-origin: left;
         }
         .feature-card:hover {
-          border-color: rgba(205,117,48,0.25);
-          box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+          border-color: rgba(220, 184, 75, 0.35);
+          box-shadow: var(--shadow-card-hover);
           transform: translateY(-4px);
         }
         .feature-card:hover::before { transform: scaleX(1); }
@@ -136,18 +139,18 @@ export default function Features() {
         .feature-card__icon-box {
           width: 60px;
           height: 60px;
-          background: rgba(205,117,48,0.08);
-          border-radius: 6px;
+          background: var(--orange-pale);
+          border-radius: 4px;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #CD7530;
+          color: var(--orange);
           margin-bottom: 20px;
           transition: all 0.3s ease;
         }
         .feature-card:hover .feature-card__icon-box {
-          background: #CD7530;
-          color: #ffffff;
+          background: var(--orange);
+          color: var(--dark-3);
         }
 
         .feature-card__title {
@@ -176,11 +179,11 @@ export default function Features() {
           font-family: 'Manrope', sans-serif;
           font-size: 0.8rem;
           font-weight: 700;
-          color: #CD7530;
+          color: var(--orange);
           text-decoration: none;
           transition: gap 0.2s ease;
         }
-        .feature-card__link:hover { gap: 10px; color: #A85F20; }
+        .feature-card__link:hover { gap: 10px; color: var(--orange-dark); }
 
         @media (max-width: 900px) { .features__grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 560px) { .features__grid { grid-template-columns: 1fr; } }

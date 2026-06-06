@@ -83,7 +83,7 @@ const CERTIFICATES: Certificate[] = [
     scope: "Grading, processing, custom sorting, packaging, and international distribution of minerals and gemstones.",
     issuedDate: "May 10, 2023",
     expiryDate: "May 09, 2026",
-    accentColor: "#CD7530"
+    accentColor: "var(--orange)"
   },
   {
     id: "iso14001",
@@ -94,7 +94,7 @@ const CERTIFICATES: Certificate[] = [
     scope: "Eco-friendly stone washing, dust mitigation, responsible sorting, and adherence to environmental standards.",
     issuedDate: "June 14, 2024",
     expiryDate: "June 13, 2027",
-    accentColor: "#3E8E41"
+    accentColor: "var(--dark-2)"
   },
   {
     id: "gia",
@@ -105,7 +105,7 @@ const CERTIFICATES: Certificate[] = [
     scope: "Strict grading protocols for clarity, cut, color, and carat weight on all exported gemstones.",
     issuedDate: "Jan 05, 2024",
     expiryDate: "Continuous Assessment",
-    accentColor: "#1070A0"
+    accentColor: "var(--orange)"
   },
   {
     id: "ctpat",
@@ -116,7 +116,7 @@ const CERTIFICATES: Certificate[] = [
     scope: "Verified secure loading docks, tamper-proof container seals, and tracking system for international transit.",
     issuedDate: "Aug 22, 2023",
     expiryDate: "Aug 21, 2026",
-    accentColor: "#8D4FAD"
+    accentColor: "var(--dark-2)"
   }
 ];
 
@@ -131,13 +131,13 @@ export default function Certifications() {
   };
 
   return (
-    <section className="certifications-section section bg-white" id="compliance">
+    <section className="certifications-section section bg-light" id="compliance">
       <div className="container">
-        
+
         {/* Section Header */}
         <div className="section-center" style={{ marginBottom: "60px" }}>
-          <span className="section-label">Trust & Legitimacy</span>
-          <h2 className="section-title">Certified & Fully Compliant</h2>
+          <span className="section-label">Our Certifications</span>
+          <h2 className="section-title">Certified &amp; Fully Compliant</h2>
           <span className="section-divider" />
           <p className="section-subtitle">
             Operating under strict international quality management standards and registered with federal corporate
@@ -147,9 +147,9 @@ export default function Certifications() {
 
         {/* Two Column Grid */}
         <div className="compliance-grid">
-          
+
           {/* Left Column: Live Verification System */}
-          <div className="verification-card">
+          <div className="verification-card reveal-fade-right">
             <div className="card-header">
               <div className="status-badge">
                 <span className="pulse-dot"></span>
@@ -177,8 +177,8 @@ export default function Certifications() {
                       </div>
                       <div className="license-number-row">
                         <span className="license-number">{lic.number}</span>
-                        <button 
-                          className="copy-btn" 
+                        <button
+                          className="copy-btn"
                           onClick={() => copyToClipboard(lic.number, lic.id)}
                           title="Copy License Number"
                         >
@@ -237,13 +237,15 @@ export default function Certifications() {
 
           {/* Right Column: Interactive Certificates Badges */}
           <div className="certificates-grid">
-            {CERTIFICATES.map((cert) => (
-              <div 
-                key={cert.id} 
-                className="cert-card" 
-                onClick={() => setSelectedCert(cert)}
-                style={{ "--accent-color": cert.accentColor } as React.CSSProperties}
-              >
+            {CERTIFICATES.map((cert, i) => {
+              const delayClass = i === 1 ? " delay-100" : i === 2 ? " delay-200" : i === 3 ? " delay-300" : "";
+              return (
+                <div 
+                  key={cert.id} 
+                  className={`cert-card reveal${delayClass}`} 
+                  onClick={() => setSelectedCert(cert)}
+                  style={{ "--accent-color": cert.accentColor } as React.CSSProperties}
+                >
                 <div className="cert-card-accent" />
                 <div className="cert-card-header">
                   <div className="cert-badge-icon" style={{ backgroundColor: `${cert.accentColor}15`, color: cert.accentColor }}>
@@ -267,8 +269,9 @@ export default function Certifications() {
                     </svg>
                   </span>
                 </div>
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
 
         </div>
@@ -287,14 +290,14 @@ export default function Certifications() {
 
             {/* Certificate Style Container */}
             <div className="official-certificate" style={{ borderTop: `10px solid ${selectedCert.accentColor}` }}>
-              
+
               {/* Decorative Certificate Frame */}
               <div className="cert-frame-inner">
-                
+
                 {/* Header Section */}
                 <div className="cert-header-logos">
                   <div className="cert-logo-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#CD7530" strokeWidth="2" width="48" height="48">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2" width="48" height="48">
                       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                   </div>
@@ -309,9 +312,9 @@ export default function Certifications() {
                   <p className="cert-conformance-text">This is to certify that the operations and trade standards of</p>
                   <p className="cert-company-name">MINERAL EXPORT INTERNATIONAL (PVT) LTD</p>
                   <p className="cert-company-address">Peshawar Mineral Processing Facility, KP, Pakistan</p>
-                  
+
                   <div className="cert-divider-line"></div>
-                  
+
                   <p className="cert-scope-label">HAVE BEEN ASSESSED AND FOUND COMPLIANT WITH THE REQUIREMENTS OF</p>
                   <p className="cert-standard-name" style={{ color: selectedCert.accentColor }}>{selectedCert.title}</p>
                   <p className="cert-standard-desc">({selectedCert.subtitle})</p>
@@ -328,13 +331,13 @@ export default function Certifications() {
                     <span className="cert-meta-label">CERTIFICATE NUMBER</span>
                     <span className="cert-meta-val">{selectedCert.number}</span>
                   </div>
-                  
+
                   <div className="cert-footer-col center-col">
                     {/* Simulated gold seal */}
                     <div className="gold-seal">
                       <svg viewBox="0 0 100 100" width="70" height="70" className="seal-svg">
-                        <circle cx="50" cy="50" r="45" fill="#f6d365" stroke="#CD7530" strokeWidth="2" />
-                        <path d="M50 15L61 38H85L66 52L75 75L50 60L25 75L34 52L15 38H39L50 15Z" fill="#CD7530" />
+                        <circle cx="50" cy="50" r="45" fill="#f6d365" stroke="var(--orange)" strokeWidth="2" />
+                        <path d="M50 15L61 38H85L66 52L75 75L50 60L25 75L34 52L15 38H39L50 15Z" fill="var(--orange)" />
                         <circle cx="50" cy="50" r="32" fill="none" stroke="#ffffff" strokeWidth="1" strokeDasharray="3,3" />
                       </svg>
                       <span className="seal-text">VERIFIED</span>
@@ -519,7 +522,7 @@ export default function Certifications() {
           font-family: 'Courier New', Courier, monospace;
           font-weight: 700;
           font-size: 0.8125rem;
-          color: #CD7530;
+          color: var(--orange);
         }
 
         .copy-btn {
@@ -535,7 +538,7 @@ export default function Certifications() {
         }
 
         .copy-btn:hover {
-          color: #CD7530;
+          color: var(--orange);
         }
 
         .license-portal-row {
@@ -556,7 +559,7 @@ export default function Certifications() {
           font-family: 'Manrope', sans-serif;
           font-size: 0.75rem;
           font-weight: 700;
-          color: #CD7530;
+          color: var(--orange);
           text-decoration: underline;
           display: inline-flex;
           align-items: center;
@@ -564,16 +567,16 @@ export default function Certifications() {
         }
 
         .portal-link:hover {
-          color: #A85F20;
+          color: var(--orange-dark);
         }
 
         .verify-btn {
           font-family: 'Poppins', sans-serif;
           font-weight: 600;
           font-size: 0.75rem;
-          color: #CD7530;
+          color: var(--orange);
           background: transparent;
-          border: 1.5px solid #CD7530;
+          border: 1.5px solid var(--orange);
           padding: 6px 16px;
           border-radius: 4px;
           cursor: pointer;
@@ -585,7 +588,7 @@ export default function Certifications() {
         }
 
         .verify-btn:hover {
-          background: #CD7530;
+          background: var(--orange);
           color: #ffffff;
         }
 
@@ -605,7 +608,7 @@ export default function Certifications() {
           font-family: 'Poppins', sans-serif;
           font-weight: 700;
           font-size: 0.8125rem;
-          color: #CD7530;
+          color: var(--orange);
           text-transform: uppercase;
           letter-spacing: 0.5px;
         }
@@ -628,7 +631,7 @@ export default function Certifications() {
           justify-content: center;
           width: 18px;
           height: 18px;
-          background: #CD7530;
+          background: var(--orange);
           color: #ffffff;
           border-radius: 50%;
           font-family: 'Poppins', sans-serif;
@@ -673,7 +676,7 @@ export default function Certifications() {
 
         .cert-card:hover {
           transform: translateY(-3px);
-          border-color: rgba(205,117,48,0.2);
+          border-color: rgba(220, 184, 75,0.2);
           box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
 
@@ -740,7 +743,7 @@ export default function Certifications() {
           font-family: 'Poppins', sans-serif;
           font-weight: 600;
           font-size: 0.75rem;
-          color: #CD7530;
+          color: var(--orange);
           display: inline-flex;
           align-items: center;
           gap: 4px;
@@ -818,7 +821,7 @@ export default function Certifications() {
         }
 
         .cert-frame-inner {
-          border: 2px solid #CD7530;
+          border: 2px solid var(--orange);
           padding: 36px 40px;
           background: #ffffff;
           position: relative;
@@ -829,7 +832,7 @@ export default function Certifications() {
           content: "";
           position: absolute;
           inset: 15px;
-          border: 1px solid rgba(205,117,48,0.15);
+          border: 1px solid rgba(220, 184, 75,0.15);
           pointer-events: none;
         }
 
@@ -862,7 +865,7 @@ export default function Certifications() {
           font-family: 'Manrope', sans-serif;
           font-size: 0.6875rem;
           font-weight: 600;
-          color: #CD7530;
+          color: var(--orange);
         }
 
         .cert-main-body {
@@ -893,7 +896,7 @@ export default function Certifications() {
           font-family: 'Poppins', sans-serif;
           font-weight: 800;
           font-size: 1.35rem;
-          color: #CD7530;
+          color: var(--orange);
           letter-spacing: 1px;
           margin-bottom: 4px;
         }
@@ -1024,7 +1027,7 @@ export default function Certifications() {
           font-family: 'Poppins', sans-serif;
           font-size: 0.5rem;
           font-weight: 800;
-          color: #CD7530;
+          color: var(--orange);
           letter-spacing: 0.5px;
           pointer-events: none;
         }

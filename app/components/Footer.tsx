@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import { openExportCheckModal } from "./SiteWidgets";
+
 const FOOTER_LINKS = {
   "Quick Links": [
     { label: "Home", href: "#home" },
@@ -7,15 +10,16 @@ const FOOTER_LINKS = {
     { label: "Our Minerals", href: "#minerals" },
     { label: "Services", href: "#services" },
     { label: "Testimonials", href: "#testimonials" },
+    { label: "Export Check", href: "#export-check" },
     { label: "Contact", href: "#contact" },
   ],
   "Our Minerals": [
     { label: "Pink Himalayan Salt", href: "#minerals" },
     { label: "Emerald (Panna)", href: "#minerals" },
     { label: "Ruby", href: "#minerals" },
-    { label: "Lapis Lazuli", href: "#minerals" },
+    { label: "China Clay", href: "#minerals" },
     { label: "Aquamarine", href: "#minerals" },
-    { label: "Chromite Ore", href: "#minerals" },
+    { label: "Talc", href: "#minerals" },
   ],
 };
 
@@ -34,16 +38,65 @@ const SOCIALS = [
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleNewsletter = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setSubmitted(true);
+    setEmail("");
+    setTimeout(() => setSubmitted(false), 3000);
+  };
+
   return (
     <footer className="footer">
+      {/* 60-Second Export Check CTA */}
+      <div className="footer__export-cta" id="export-check">
+        <div className="container footer__export-cta-inner">
+          <div className="footer__export-cta-text">
+            <h3>Need a Quick Export Quote?</h3>
+            <p>Answer 4 questions — get a tailored quote in under 60 seconds.</p>
+          </div>
+          <button type="button" className="footer__export-cta-btn" onClick={openExportCheckModal}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            60-Second Export Check
+          </button>
+        </div>
+      </div>
+
+      {/* Newsletter band — PMI-style */}
+      <div className="footer__newsletter">
+        <div className="container footer__newsletter-inner">
+          <div className="footer__newsletter-text">
+            <h3>Newsletter</h3>
+            <p>Join our mailing list to get news updates and exclusive export offers.</p>
+          </div>
+          <form className="footer__newsletter-form" onSubmit={handleNewsletter}>
+            <input
+              type="email"
+              placeholder="Your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              aria-label="Email for newsletter"
+            />
+            <button type="submit">{submitted ? "Subscribed!" : "Send"}</button>
+          </form>
+        </div>
+      </div>
+
       <div className="footer__body">
         <div className="container footer__grid">
           {/* Brand */}
           <div className="footer__brand">
             <a href="#home" className="footer__logo">
               <svg viewBox="0 0 40 40" fill="none" width="32" height="32">
-                <polygon points="20,4 36,13 36,27 20,36 4,27 4,13" fill="#CD7530" opacity="0.15" stroke="#CD7530" strokeWidth="1.5"/>
-                <circle cx="20" cy="20" r="4.5" fill="#CD7530"/>
+                <polygon points="20,4 36,13 36,27 20,36 4,27 4,13" fill="var(--orange)" opacity="0.15" stroke="var(--orange)" strokeWidth="1.5"/>
+                <circle cx="20" cy="20" r="4.5" fill="var(--orange)"/>
                 <circle cx="20" cy="20" r="2" fill="white"/>
               </svg>
               <div>
@@ -123,11 +176,81 @@ export default function Footer() {
 
       <style jsx>{`
         .footer {
-          background: #171717;
+          background: #303439;
           color: rgba(255,255,255,0.45);
           font-family: 'Manrope', sans-serif;
         }
-        .footer__body { padding: 80px 0 56px; border-top: 3px solid #CD7530; }
+
+        .footer__newsletter {
+          background: rgba(0, 0, 0, 0.12);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          padding: 36px 0;
+        }
+        .footer__newsletter-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 32px;
+          flex-wrap: wrap;
+        }
+        .footer__newsletter-text h3 {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.125rem;
+          font-weight: 600;
+          color: var(--white);
+          margin: 0 0 6px;
+        }
+        .footer__newsletter-text p {
+          font-size: 0.875rem;
+          color: rgba(255, 255, 255, 0.45);
+          margin: 0;
+          max-width: 420px;
+          line-height: 1.6;
+        }
+        .footer__newsletter-form {
+          display: flex;
+          gap: 0;
+          flex: 1;
+          max-width: 460px;
+          min-width: 280px;
+        }
+        .footer__newsletter-form input {
+          flex: 1;
+          padding: 13px 16px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-right: none;
+          border-radius: 4px 0 0 4px;
+          background: rgba(255, 255, 255, 0.06);
+          color: var(--white);
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.875rem;
+          outline: none;
+        }
+        .footer__newsletter-form input::placeholder {
+          color: rgba(255, 255, 255, 0.3);
+        }
+        .footer__newsletter-form input:focus {
+          border-color: rgba(220, 184, 75, 0.5);
+        }
+        .footer__newsletter-form button {
+          padding: 13px 28px;
+          background: var(--orange);
+          color: var(--dark-3);
+          border: 2px solid var(--orange);
+          border-radius: 0 4px 4px 0;
+          font-family: 'Poppins', sans-serif;
+          font-size: 0.875rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          white-space: nowrap;
+        }
+        .footer__newsletter-form button:hover {
+          background: var(--orange-dark);
+          border-color: var(--orange-dark);
+        }
+
+        .footer__body { padding: 80px 0 56px; border-top: 3px solid var(--orange); }
         .footer__grid {
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1.4fr;
@@ -149,7 +272,7 @@ export default function Footer() {
           font-size: 1.125rem;
           color: #ffffff;
         }
-        .footer__logo-name em { font-style: normal; color: #CD7530; }
+        .footer__logo-name em { font-style: normal; color: var(--orange); }
         .footer__logo-sub {
           display: block;
           font-size: 0.5625rem;
@@ -177,9 +300,9 @@ export default function Footer() {
           font-weight: 700;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          color: rgba(205,117,48,0.7);
-          background: rgba(205,117,48,0.08);
-          border: 1px solid rgba(205,117,48,0.15);
+          color: rgba(220, 184, 75, 0.8);
+          background: rgba(220, 184, 75, 0.08);
+          border: 1px solid rgba(220, 184, 75, 0.15);
           padding: 4px 10px;
           border-radius: 3px;
         }
@@ -202,9 +325,9 @@ export default function Footer() {
           transition: all 0.2s ease;
         }
         .footer__social:hover {
-          background: #CD7530;
-          border-color: #CD7530;
-          color: #ffffff;
+          background: var(--orange);
+          border-color: var(--orange);
+          color: var(--dark-3);
         }
 
         /* Columns */
@@ -215,7 +338,7 @@ export default function Footer() {
           color: #ffffff;
           margin-bottom: 20px;
           padding-bottom: 12px;
-          border-bottom: 2px solid #CD7530;
+          border-bottom: 2px solid var(--orange);
           display: inline-block;
         }
         .footer__col-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -228,7 +351,7 @@ export default function Footer() {
           text-decoration: none;
           transition: color 0.2s ease, padding-left 0.2s ease;
         }
-        .footer__col-link svg { color: #CD7530; flex-shrink: 0; opacity: 0.5; transition: opacity 0.2s; }
+        .footer__col-link svg { color: var(--orange); flex-shrink: 0; opacity: 0.5; transition: opacity 0.2s; }
         .footer__col-link:hover { color: rgba(255,255,255,0.8); padding-left: 4px; }
         .footer__col-link:hover svg { opacity: 1; }
 
@@ -243,14 +366,14 @@ export default function Footer() {
           line-height: 1.6;
         }
         .footer__contact-icon {
-          color: #CD7530;
+          color: var(--orange);
           flex-shrink: 0;
           margin-top: 2px;
         }
 
         /* Bottom bar */
         .footer__bottom {
-          background: rgba(0,0,0,0.3);
+          background: rgba(0,0,0,0.15);
           padding: 18px 0;
           border-top: 1px solid rgba(255,255,255,0.05);
         }
@@ -277,12 +400,14 @@ export default function Footer() {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .footer__bottom-links a:hover { color: #CD7530; }
+        .footer__bottom-links a:hover { color: var(--orange); }
 
         @media (max-width: 1100px) {
           .footer__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
         }
         @media (max-width: 600px) {
+          .footer__newsletter-inner { flex-direction: column; align-items: stretch; }
+          .footer__newsletter-form { max-width: 100%; min-width: 0; }
           .footer__grid { grid-template-columns: 1fr; gap: 32px; }
           .footer__body { padding: 56px 0 40px; }
           .footer__bottom-inner { flex-direction: column; align-items: flex-start; }

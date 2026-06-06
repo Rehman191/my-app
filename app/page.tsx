@@ -8,49 +8,32 @@ import Stats from "./components/Stats";
 import Certifications from "./components/Certifications";
 import Minerals from "./components/Minerals";
 import Testimonials from "./components/Testimonials";
+import Partners from "./components/Partners";
 import CtaBanner from "./components/CtaBanner";
 import Footer from "./components/Footer";
+import RevealObserver from "./components/RevealObserver";
 
 export default function Home() {
   return (
     <>
-      {/* Global top announcement bar */}
-      <TopBar />
+      <RevealObserver />
 
-      {/* Sticky navbar — offset content by its height */}
+      <TopBar />
       <Navbar />
 
-      {/* Main page content */}
       <main>
-        {/* Phase B: Hero */}
         <Hero />
-
-        {/* Phase C: Feature services grid */}
         <Features />
-
-        {/* Phase C: About split section */}
         <About />
-
-        {/* Leadership & Owners Section */}
         <Leadership />
-
-        {/* Phase C: Dark stats counter bar */}
         <Stats />
-
-        {/* Phase C: Certifications & Compliance section */}
         <Certifications />
-
-        {/* Phase C: Minerals product grid */}
         <Minerals />
-
-        {/* Phase C: Client testimonials */}
         <Testimonials />
-
-        {/* Phase C: CTA + contact form */}
+        <Partners />
         <CtaBanner />
       </main>
 
-      {/* Footer */}
       <Footer />
     </>
   );

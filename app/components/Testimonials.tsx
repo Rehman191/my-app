@@ -5,7 +5,7 @@ const TESTIMONIALS = [
   { name: "Marcus Hoffmann", role: "Procurement Director", company: "GeoStone GmbH", country: "Germany", avatar: "https://randomuser.me/api/portraits/men/32.jpg", rating: 5, text: "Mineral Exp Int has been our exclusive supplier for 8 years. Their consistency in quality and punctual delivery is unmatched. A true partner we can rely on." },
   { name: "Sophie Laurent", role: "Head of Sourcing", company: "Gemme Royale", country: "France", avatar: "https://randomuser.me/api/portraits/women/44.jpg", rating: 5, text: "The emeralds and aquamarines we receive are of exceptional quality — fully certified, beautifully packaged, and always exactly as described. I recommend them highly." },
   { name: "Raj Krishnamurthy", role: "Chief Executive Officer", company: "IndoMinerals Ltd", country: "India", avatar: "https://randomuser.me/api/portraits/men/67.jpg", rating: 5, text: "From the first inquiry to final delivery, the process is seamless. Their documentation team makes customs clearance effortless. Best mineral exporter I've worked with." },
-  { name: "Elena Vasquez", role: "Operations Manager", company: "PetraGroup", country: "Spain", avatar: "https://randomuser.me/api/portraits/women/68.jpg", rating: 5, text: "We source decorative stones and lapis lazuli for high-end architecture projects. Mineral Exp Int provides exactly what we need — premium quality at competitive prices." },
+  { name: "Elena Vasquez", role: "Operations Manager", company: "PetraGroup", country: "Spain", avatar: "https://randomuser.me/api/portraits/women/68.jpg", rating: 5, text: "We source china clay and talc for ceramics and industrial manufacturing. Mineral Exp Int provides exactly what we need — premium quality at competitive prices." },
 ];
 
 export default function Testimonials() {
@@ -25,12 +25,12 @@ export default function Testimonials() {
 
         <div className="testi__layout">
           {/* Left: Featured */}
-          <div className="testi__feature">
+          <div className="testi__feature reveal-fade-right">
             <div className="testi__quote">&ldquo;</div>
             <blockquote className="testi__text">{t.text}</blockquote>
             <div className="testi__stars">
               {Array.from({ length: 5 }).map((_, i) => (
-                <svg key={i} viewBox="0 0 24 24" fill={i < t.rating ? "#CD7530" : "none"} stroke="#CD7530" strokeWidth="1.5" width="16" height="16">
+                <svg key={i} viewBox="0 0 24 24" fill={i < t.rating ? "var(--orange)" : "none"} stroke="var(--orange)" strokeWidth="1.5" width="16" height="16">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                 </svg>
               ))}
@@ -53,7 +53,7 @@ export default function Testimonials() {
           </div>
 
           {/* Right: Tab list */}
-          <div className="testi__list">
+          <div className="testi__list reveal-fade-left">
             {TESTIMONIALS.map((item, i) => (
               <button key={item.name} className={`testi__tab ${i === active ? "testi__tab--active" : ""}`}
                 onClick={() => setActive(i)} id={`testimonial-tab-${i}`}>
@@ -63,7 +63,7 @@ export default function Testimonials() {
                   <span>{item.role}</span>
                   <span className="testi__tab-company">{item.company} · {item.country}</span>
                 </div>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#CD7530" strokeWidth="2.5" width="14" height="14"
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2.5" width="14" height="14"
                   style={{ opacity: i === active ? 1 : 0, transition: "opacity 0.2s" }}>
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -78,7 +78,7 @@ export default function Testimonials() {
                 { icon: "M12 2a10 10 0 100 20 10 10 0 000-20z", label: "Global Reach" },
               ].map((item) => (
                 <div key={item.label} className="testi__trust-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#CD7530" strokeWidth="2" width="18" height="18">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2" width="18" height="18">
                     <path d={item.icon}/>
                   </svg>
                   <span>{item.label}</span>
@@ -101,7 +101,7 @@ export default function Testimonials() {
 
         /* Feature */
         .testi__feature {
-          background: #171717;
+          background: #303439;
           padding: 52px 48px 44px;
           border-radius: 6px;
           position: relative;
@@ -112,13 +112,13 @@ export default function Testimonials() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 4px;
-          background: #CD7530;
+          background: var(--orange);
         }
 
         .testi__quote {
           font-size: 6rem;
           line-height: 0.8;
-          color: #CD7530;
+          color: var(--orange);
           opacity: 0.2;
           font-family: Georgia, serif;
           position: absolute;
@@ -153,7 +153,7 @@ export default function Testimonials() {
           height: 52px;
           border-radius: 50%;
           object-fit: cover;
-          border: 2px solid #CD7530;
+          border: 2px solid var(--orange);
         }
         .testi__author-name {
           display: block;
@@ -176,7 +176,7 @@ export default function Testimonials() {
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
-          color: rgba(205,117,48,0.7);
+          color: rgba(252, 185, 0,0.7);
           margin-top: 4px;
         }
 
@@ -193,7 +193,7 @@ export default function Testimonials() {
           border-radius: 2px;
           transition: all 0.3s ease;
         }
-        .testi__dot--active { width: 40px; background: #CD7530; }
+        .testi__dot--active { width: 40px; background: var(--orange); }
 
         /* Tab list */
         .testi__list {
@@ -220,14 +220,14 @@ export default function Testimonials() {
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 3px;
-          background: #CD7530;
+          background: var(--orange);
           transform: scaleY(0);
           transition: transform 0.25s ease;
         }
         .testi__tab--active,
         .testi__tab:hover {
-          border-color: rgba(205,117,48,0.25);
-          background: rgba(205,117,48,0.03);
+          border-color: rgba(252, 185, 0,0.25);
+          background: rgba(252, 185, 0,0.03);
           box-shadow: 0 4px 16px rgba(0,0,0,0.06);
         }
         .testi__tab--active::before,
@@ -242,7 +242,7 @@ export default function Testimonials() {
           border: 2px solid #e8e8e8;
           transition: border-color 0.2s;
         }
-        .testi__tab--active .testi__tab-avatar { border-color: #CD7530; }
+        .testi__tab--active .testi__tab-avatar { border-color: var(--orange); }
 
         .testi__tab-info {
           flex: 1;
@@ -267,7 +267,7 @@ export default function Testimonials() {
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
-          color: rgba(205,117,48,0.7);
+          color: rgba(252, 185, 0,0.7);
         }
 
         /* Trust strip */

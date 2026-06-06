@@ -57,48 +57,51 @@ export default function Leadership() {
 
         {/* Team Grid */}
         <div className="team-grid">
-          {TEAM_MEMBERS.map((member) => (
-            <div className="team-card" key={member.name}>
-              
-              {/* Image Frame */}
-              <div className="team-image-wrapper">
-                <img 
-                  src={member.image} 
-                  alt={`${member.name} - ${member.role}`} 
-                  className="team-image"
-                />
-                <div className="team-overlay">
-                  <p className="team-overlay-bio">{member.bio}</p>
-                </div>
-              </div>
-
-              {/* Card Details */}
-              <div className="team-info">
-                <span className="team-role-tag">{member.role}</span>
-                <h3 className="team-name">{member.name}</h3>
-                <span className="team-experience">{member.experience}</span>
+          {TEAM_MEMBERS.map((member, i) => {
+            const delayClass = i === 1 ? " delay-100" : i === 2 ? " delay-200" : "";
+            return (
+              <div className={`team-card reveal${delayClass}`} key={member.name}>
                 
-                {/* Footer contacts */}
-                <div className="team-contact">
-                  <a href={`mailto:${member.email}`} className="contact-icon-link" title={`Email ${member.name}`}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                      <polyline points="22,6 12,13 2,6" />
-                    </svg>
-                    <span className="contact-label">{member.email}</span>
-                  </a>
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link" title="LinkedIn Profile">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect x="2" y="9" width="4" height="12" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
-                  </a>
+                {/* Image Frame */}
+                <div className="team-image-wrapper">
+                  <img 
+                    src={member.image} 
+                    alt={`${member.name} - ${member.role}`} 
+                    className="team-image"
+                  />
+                  <div className="team-overlay">
+                    <p className="team-overlay-bio">{member.bio}</p>
+                  </div>
                 </div>
-              </div>
 
-            </div>
-          ))}
+                {/* Card Details */}
+                <div className="team-info">
+                  <span className="team-role-tag">{member.role}</span>
+                  <h3 className="team-name">{member.name}</h3>
+                  <span className="team-experience">{member.experience}</span>
+                  
+                  {/* Footer contacts */}
+                  <div className="team-contact">
+                    <a href={`mailto:${member.email}`} className="contact-icon-link" title={`Email ${member.name}`}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                      </svg>
+                      <span className="contact-label">{member.email}</span>
+                    </a>
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link" title="LinkedIn Profile">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
         </div>
 
       </div>
@@ -128,7 +131,7 @@ export default function Leadership() {
 
         .team-card:hover {
           transform: translateY(-5px);
-          border-color: rgba(205,117,48,0.25);
+          border-color: rgba(252, 185, 0,0.25);
           box-shadow: 0 16px 40px rgba(0,0,0,0.08);
         }
 
@@ -193,7 +196,7 @@ export default function Leadership() {
           font-size: 0.6875rem;
           font-weight: 700;
           letter-spacing: 1.5px;
-          color: #CD7530;
+          color: var(--orange);
           text-transform: uppercase;
           margin-bottom: 8px;
         }
@@ -234,7 +237,7 @@ export default function Leadership() {
         }
 
         .contact-icon-link:hover {
-          color: #CD7530;
+          color: var(--orange);
         }
 
         .contact-label {
@@ -251,7 +254,7 @@ export default function Leadership() {
         }
 
         .linkedin-link:hover {
-          color: #CD7530;
+          color: var(--orange);
         }
 
         @media (max-width: 900px) {

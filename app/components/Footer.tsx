@@ -68,26 +68,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Newsletter band — PMI-style */}
-      <div className="footer__newsletter">
-        <div className="container footer__newsletter-inner">
-          <div className="footer__newsletter-text">
-            <h3>Newsletter</h3>
-            <p>Join our mailing list to get news updates and exclusive export offers.</p>
-          </div>
-          <form className="footer__newsletter-form" onSubmit={handleNewsletter}>
-            <input
-              type="email"
-              placeholder="Your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              aria-label="Email for newsletter"
-            />
-            <button type="submit">{submitted ? "Subscribed!" : "Send"}</button>
-          </form>
-        </div>
-      </div>
+
 
       <div className="footer__body">
         <div className="container footer__grid">
@@ -159,6 +140,42 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Newsletter Card */}
+          <div className="footer__col footer__col--newsletter">
+            <h4 className="footer__col-title">Newsletter</h4>
+            <p className="footer__newsletter-desc">
+              Subscribe for custom export intelligence, mineral market updates, and pricing alerts.
+            </p>
+            <form className="footer__subscribe-form" onSubmit={handleNewsletter}>
+              <div className={submitted ? "footer__input-group footer__input-group--submitted" : "footer__input-group"}>
+                <svg className="footer__input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input
+                  type="email"
+                  placeholder="Enter email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  aria-label="Email for newsletter"
+                />
+                <button type="submit" aria-label="Subscribe" disabled={submitted}>
+                  {submitted ? (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" width="14" height="14">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="14" height="14">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  )}
+                </button>
+              </div>
+              {submitted && <span className="footer__success-msg">Successfully subscribed!</span>}
+            </form>
+          </div>
         </div>
       </div>
 
@@ -181,80 +198,119 @@ export default function Footer() {
           font-family: 'Manrope', sans-serif;
         }
 
-        .footer__newsletter {
-          background: rgba(0, 0, 0, 0.12);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          padding: 36px 0;
+        .footer__col--newsletter {
+          display: flex;
+          flex-direction: column;
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 12px;
+          padding: 24px;
+          transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .footer__newsletter-inner {
+        .footer__col--newsletter:hover {
+          background: rgba(255, 255, 255, 0.035);
+          border-color: rgba(220, 184, 75, 0.25);
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+        .footer__newsletter-desc {
+          font-size: 0.85rem;
+          color: rgba(255, 255, 255, 0.35);
+          line-height: 1.6;
+          margin-bottom: 18px;
+        }
+        .footer__subscribe-form {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          position: relative;
+        }
+        .footer__input-group {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          gap: 32px;
-          flex-wrap: wrap;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 6px;
+          padding: 4px;
+          padding-left: 12px;
+          transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+          height: 46px;
         }
-        .footer__newsletter-text h3 {
-          font-family: 'Poppins', sans-serif;
-          font-size: 1.125rem;
-          font-weight: 600;
-          color: var(--white);
-          margin: 0 0 6px;
-        }
-        .footer__newsletter-text p {
-          font-size: 0.875rem;
-          color: rgba(255, 255, 255, 0.45);
-          margin: 0;
-          max-width: 420px;
-          line-height: 1.6;
-        }
-        .footer__newsletter-form {
-          display: flex;
-          gap: 0;
-          flex: 1;
-          max-width: 460px;
-          min-width: 280px;
-        }
-        .footer__newsletter-form input {
-          flex: 1;
-          padding: 13px 16px;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-right: none;
-          border-radius: 4px 0 0 4px;
+        .footer__input-group:focus-within {
+          border-color: var(--orange);
           background: rgba(255, 255, 255, 0.06);
-          color: var(--white);
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.875rem;
-          outline: none;
+          box-shadow: 0 0 0 3px rgba(220, 184, 75, 0.15);
         }
-        .footer__newsletter-form input::placeholder {
+        .footer__input-group--submitted {
+          border-color: #48bb78 !important;
+          box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.15) !important;
+        }
+        .footer__input-icon {
+          width: 16px;
+          height: 16px;
           color: rgba(255, 255, 255, 0.3);
+          margin-right: 8px;
+          flex-shrink: 0;
+          transition: color 0.25s;
         }
-        .footer__newsletter-form input:focus {
-          border-color: rgba(220, 184, 75, 0.5);
+        .footer__input-group:focus-within .footer__input-icon {
+          color: var(--orange);
         }
-        .footer__newsletter-form button {
-          padding: 13px 28px;
+        .footer__input-group input {
+          flex: 1;
+          background: transparent;
+          border: none;
+          outline: none;
+          color: #ffffff;
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.85rem;
+          height: 100%;
+          min-width: 0;
+        }
+        .footer__input-group input::placeholder {
+          color: rgba(255, 255, 255, 0.25);
+        }
+        .footer__input-group button {
+          width: 36px;
+          height: 36px;
           background: var(--orange);
           color: var(--dark-3);
-          border: 2px solid var(--orange);
-          border-radius: 0 4px 4px 0;
-          font-family: 'Poppins', sans-serif;
-          font-size: 0.875rem;
-          font-weight: 600;
+          border: none;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           cursor: pointer;
-          transition: all 0.25s ease;
-          white-space: nowrap;
+          transition: background-color 0.2s, transform 0.2s, color 0.2s;
+          flex-shrink: 0;
         }
-        .footer__newsletter-form button:hover {
+        .footer__input-group button:hover {
           background: var(--orange-dark);
-          border-color: var(--orange-dark);
+          transform: scale(1.02);
+        }
+        .footer__input-group button:active {
+          transform: scale(0.98);
+        }
+        .footer__input-group button[disabled] {
+          background: #48bb78;
+          color: #ffffff;
+          cursor: default;
+        }
+        .footer__success-msg {
+          font-size: 0.75rem;
+          color: #48bb78;
+          margin-top: 4px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          animation: fadeUp 0.3s ease forwards;
         }
 
         .footer__body { padding: 80px 0 56px; border-top: 3px solid var(--orange); }
         .footer__grid {
           display: grid;
-          grid-template-columns: 2fr 1fr 1fr 1.4fr;
-          gap: 56px;
+          grid-template-columns: 2.2fr 1fr 1fr 1.3fr 2.3fr;
+          gap: 48px;
         }
 
         /* Logo */
@@ -403,12 +459,28 @@ export default function Footer() {
         .footer__bottom-links a:hover { color: var(--orange); }
 
         @media (max-width: 1100px) {
-          .footer__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+          .footer__grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+          }
+          .footer__brand {
+            grid-column: span 2;
+          }
+          .footer__col--newsletter {
+            grid-column: span 2;
+            max-width: 480px;
+          }
         }
         @media (max-width: 600px) {
-          .footer__newsletter-inner { flex-direction: column; align-items: stretch; }
-          .footer__newsletter-form { max-width: 100%; min-width: 0; }
-          .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+          .footer__grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+          .footer__brand,
+          .footer__col--newsletter {
+            grid-column: span 1;
+            max-width: 100%;
+          }
           .footer__body { padding: 56px 0 40px; }
           .footer__bottom-inner { flex-direction: column; align-items: flex-start; }
         }

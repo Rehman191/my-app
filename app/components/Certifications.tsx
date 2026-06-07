@@ -296,10 +296,12 @@ export default function Certifications() {
 
                 {/* Header Section */}
                 <div className="cert-header-logos">
-                  <div className="cert-logo-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2" width="48" height="48">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
+                  <div className="cert-logo-placeholder" style={{ display: "flex", alignItems: "center" }}>
+                    <img 
+                      src="/images/logo.png" 
+                      alt="AML Exports Logo" 
+                      style={{ height: "40px", width: "auto", objectFit: "contain" }}
+                    />
                   </div>
                   <div className="cert-registrar-info">
                     <span className="official-header-txt">REGISTRATION OF COMPLIANCE</span>
@@ -310,7 +312,7 @@ export default function Certifications() {
                 <div className="cert-main-body">
                   <h3 className="cert-main-title">Certificate of Conformance</h3>
                   <p className="cert-conformance-text">This is to certify that the operations and trade standards of</p>
-                  <p className="cert-company-name">MINERAL EXPORT INTERNATIONAL (PVT) LTD</p>
+                  <p className="cert-company-name">AML EXPORTS (PVT) LTD</p>
                   <p className="cert-company-address">Peshawar Mineral Processing Facility, KP, Pakistan</p>
 
                   <div className="cert-divider-line"></div>

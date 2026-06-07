@@ -26,16 +26,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Mineral Exp Int — Pakistan Minerals Exports",
+  title: "AML Exports — Pakistan Minerals Exports",
   description:
-    "Mineral Exp Int is a leading exporter of premium Pakistan minerals, gemstones, and industrial rocks to global markets. Trusted worldwide for quality and reliability.",
-  keywords: "Pakistan minerals, mineral exports, gemstones, industrial minerals, rocks, Mineral Exp Int",
+    "AML Exports is a leading exporter of premium Pakistan minerals, gemstones, and industrial rocks to global markets. Trusted worldwide for quality and reliability.",
+  keywords: "Pakistan minerals, mineral exports, gemstones, industrial minerals, rocks, AML Exports",
   openGraph: {
-    title: "Mineral Exp Int — Pakistan Minerals Exports",
+    title: "AML Exports — Pakistan Minerals Exports",
     description:
       "Exporting premium Pakistan minerals and gemstones to global markets.",
     type: "website",
-    url: "https://mineralexp.com",
+    url: "https://amlexports.com",
   },
 };
 

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -15,8 +15,8 @@ const CONTACT = [
   },
   {
     label: "Email",
-    value: "info@mineralexp.com",
-    href: "mailto:info@mineralexp.com",
+    value: "info@amlexports.com",
+    href: "mailto:info@amlexports.com",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" width="17" height="17">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -72,6 +72,13 @@ export default function CtaBanner() {
 
       <div className="container">
         <header className="quote__header reveal">
+          <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center" }}>
+            <img 
+              src="/images/logo.png" 
+              alt="AML Exports" 
+              style={{ height: "40px", width: "auto", objectFit: "contain", opacity: 0.9 }}
+            />
+          </div>
           <div className="quote__eyebrow">
             <span className="quote__eyebrow-line" />
             <span className="quote__eyebrow-text">Contact Us</span>
@@ -83,8 +90,21 @@ export default function CtaBanner() {
         </header>
 
         <div className="quote__card reveal">
-          <aside className="quote__aside">
+          <aside className="quote__aside" style={{ position: "relative" }}>
             <div className="quote__aside-pattern" aria-hidden="true" />
+            {/* Subtle watermark in corner */}
+            <div style={{
+              position: "absolute",
+              bottom: "16px",
+              right: "16px",
+              width: "160px",
+              height: "160px",
+              backgroundImage: "url('/images/logo-light.png')",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              opacity: 0.07,
+              pointerEvents: "none"
+            }} aria-hidden="true" />
 
             <h3 className="quote__aside-title">Direct Export Line</h3>
             <p className="quote__aside-desc">
@@ -129,6 +149,13 @@ export default function CtaBanner() {
           <div className="quote__form-wrap">
             {sent ? (
               <div className="quote__success">
+                <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}>
+                  <img 
+                    src="/images/logo.png" 
+                    alt="AML Exports Logo" 
+                    style={{ height: "42px", width: "auto", objectFit: "contain" }}
+                  />
+                </div>
                 <div className="quote__success-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="28" height="28">
                     <polyline points="20 6 9 17 4 12" />

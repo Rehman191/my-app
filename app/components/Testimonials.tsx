@@ -2,10 +2,10 @@
 import { useState } from "react";
 
 const TESTIMONIALS = [
-  { name: "Marcus Hoffmann", role: "Procurement Director", company: "GeoStone GmbH", country: "Germany", avatar: "https://randomuser.me/api/portraits/men/32.jpg", rating: 5, text: "Mineral Exp Int has been our exclusive supplier for 8 years. Their consistency in quality and punctual delivery is unmatched. A true partner we can rely on." },
+  { name: "Marcus Hoffmann", role: "Procurement Director", company: "GeoStone GmbH", country: "Germany", avatar: "https://randomuser.me/api/portraits/men/32.jpg", rating: 5, text: "AML Exports has been our exclusive supplier for 8 years. Their consistency in quality and punctual delivery is unmatched. A true partner we can rely on." },
   { name: "Sophie Laurent", role: "Head of Sourcing", company: "Gemme Royale", country: "France", avatar: "https://randomuser.me/api/portraits/women/44.jpg", rating: 5, text: "The emeralds and aquamarines we receive are of exceptional quality — fully certified, beautifully packaged, and always exactly as described. I recommend them highly." },
   { name: "Raj Krishnamurthy", role: "Chief Executive Officer", company: "IndoMinerals Ltd", country: "India", avatar: "https://randomuser.me/api/portraits/men/67.jpg", rating: 5, text: "From the first inquiry to final delivery, the process is seamless. Their documentation team makes customs clearance effortless. Best mineral exporter I've worked with." },
-  { name: "Elena Vasquez", role: "Operations Manager", company: "PetraGroup", country: "Spain", avatar: "https://randomuser.me/api/portraits/women/68.jpg", rating: 5, text: "We source china clay and talc for ceramics and industrial manufacturing. Mineral Exp Int provides exactly what we need — premium quality at competitive prices." },
+  { name: "Elena Vasquez", role: "Operations Manager", company: "PetraGroup", country: "Spain", avatar: "https://randomuser.me/api/portraits/women/68.jpg", rating: 5, text: "We source china clay and talc for ceramics and industrial manufacturing. AML Exports provides exactly what we need — premium quality at competitive prices." },
 ];
 
 export default function Testimonials() {
@@ -20,7 +20,7 @@ export default function Testimonials() {
           <span className="section-label">Client Reviews</span>
           <h2 className="section-title">Trusted by Industry Leaders</h2>
           <span className="section-divider" />
-          <p className="section-subtitle">Hear directly from our global clients about why they choose Mineral Exp Int.</p>
+          <p className="section-subtitle">Hear directly from our global clients about why they choose AML Exports.</p>
         </div>
 
         <div className="testi__layout">

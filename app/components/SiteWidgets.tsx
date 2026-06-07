@@ -5,7 +5,7 @@ import ExportCheck from "./ExportCheck";
 
 const WHATSAPP_NUMBER = "923001234567";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello, I am interested in mineral exports from Mineral Exp International."
+  "Hello, I am interested in mineral exports from AML Exports."
 );
 
 export default function SiteWidgets() {

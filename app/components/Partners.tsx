@@ -20,6 +20,13 @@ export default function Partners() {
     <section className="partners section bg-light" id="partners">
       <div className="container">
         <div className="section-center reveal" style={{ marginBottom: "48px" }}>
+          <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center" }}>
+            <img 
+              src="/images/logo.png" 
+              alt="AML Exports" 
+              style={{ height: "40px", width: "auto", objectFit: "contain", opacity: 0.9 }}
+            />
+          </div>
           <span className="section-label">Global Network</span>
           <h2 className="section-title">Our Proud Partners</h2>
           <span className="section-divider" />

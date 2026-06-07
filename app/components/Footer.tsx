@@ -26,7 +26,7 @@ const FOOTER_LINKS = {
 const CONTACT = [
   { icon: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", text: "Office 12, Jinnah Avenue, Rawalpindi, Pakistan" },
   { icon: "M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z", text: "+92 300 123 4567" },
-  { icon: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", text: "info@mineralexp.com" },
+  { icon: "M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", text: "info@amlexports.com" },
   { icon: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z", text: "Mon–Sat: 9:00am – 6:00pm PKT" },
 ];
 
@@ -74,16 +74,12 @@ export default function Footer() {
         <div className="container footer__grid">
           {/* Brand */}
           <div className="footer__brand">
-            <a href="#home" className="footer__logo">
-              <svg viewBox="0 0 40 40" fill="none" width="32" height="32">
-                <polygon points="20,4 36,13 36,27 20,36 4,27 4,13" fill="var(--orange)" opacity="0.15" stroke="var(--orange)" strokeWidth="1.5"/>
-                <circle cx="20" cy="20" r="4.5" fill="var(--orange)"/>
-                <circle cx="20" cy="20" r="2" fill="white"/>
-              </svg>
-              <div>
-                <span className="footer__logo-name">Mineral <em>Exp</em> Int</span>
-                <span className="footer__logo-sub">Pakistan Minerals Exports</span>
-              </div>
+            <a href="#home" className="footer__logo" style={{ display: "flex", alignItems: "center" }}>
+              <img 
+                src="/images/logo-light.png" 
+                alt="AML Exports Logo" 
+                style={{ height: "50px", width: "auto", objectFit: "contain" }}
+              />
             </a>
             <p className="footer__brand-desc">
               A trusted global exporter of Pakistan&apos;s finest minerals, gemstones, and industrial rocks.
@@ -182,7 +178,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
-          <p>© {year} Mineral Exp Int. All rights reserved. · Made with ♥ in Pakistan.</p>
+          <p>© {year} AML Exports. All rights reserved. · Made with ♥ in Pakistan.</p>
           <div className="footer__bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

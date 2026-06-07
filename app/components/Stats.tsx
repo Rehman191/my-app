@@ -115,6 +115,20 @@ export default function Stats() {
 
   return (
     <section ref={sectionRef} id="impact" style={{ background: "#303439", padding: "100px 0", position: "relative", overflow: "hidden" }}>
+      {/* Subtle background watermark */}
+      <div style={{
+        position: "absolute",
+        left: "-60px",
+        bottom: "-60px",
+        width: "360px",
+        height: "360px",
+        backgroundImage: "url('/images/logo-light.png')",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        opacity: 0.07,
+        pointerEvents: "none",
+        zIndex: 0,
+      }} aria-hidden="true" />
 
       {/* Subtle pattern */}
       <div style={{

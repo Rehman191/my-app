@@ -25,13 +25,20 @@ export default function About() {
 
           {/* Text side */}
           <div className="about__text reveal-fade-left">
+            <div style={{ marginBottom: "16px" }}>
+              <img 
+                src="/images/logo.png" 
+                alt="AML Exports" 
+                style={{ height: "38px", width: "auto", objectFit: "contain", opacity: 0.9 }}
+              />
+            </div>
             <span className="section-label">About Us</span>
             <h2 className="section-title">
               Pakistan&apos;s Leading Minerals <span className="about__heading-accent">Manufacturer &amp; Exporter</span>
             </h2>
             <span className="section-divider" />
             <p className="about__para pmi-highlight-text">
-              <strong>Mineral Exp International</strong> is a company based in Pakistan, established in 2004.
+              <strong>AML Exports</strong> is a company based in Pakistan, established in 2004.
               We are a diversified mineral export group operating across gemstones, industrial minerals,
               Himalayan salt, and agricultural commodities — serving buyers in 50+ countries worldwide.
             </p>

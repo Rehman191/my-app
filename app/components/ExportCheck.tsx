@@ -231,6 +231,13 @@ export default function ExportCheck() {
 
       {stage === "sent" && (
         <div className="cw-done">
+          <div style={{ marginBottom: "16px", display: "flex", justifyContent: "center" }}>
+            <img 
+              src="/images/logo-light.png" 
+              alt="AML Exports Logo" 
+              style={{ height: "40px", width: "auto", objectFit: "contain", opacity: 0.9 }}
+            />
+          </div>
           <div className="cw-done__ring">
             <svg viewBox="0 0 48 48" fill="none" width="28" height="28">
               <polyline points="10,24 20,34 38,14" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />

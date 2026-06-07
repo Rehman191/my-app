@@ -18,11 +18,14 @@ export default function Hero() {
         <div className="hero__overlay-bottom" />
       </div>
 
+      {/* Subtle Background Watermark (positioned on the right side) */}
+      <div className="hero__watermark" aria-hidden="true" />
+
       {/* MAIN CONTENT */}
       <div className="container hero__body">
         {/* Left column */}
-        <div className="hero__left">
-          <p className="hero__welcome">Welcome to Mineral Exp International</p>
+        <div className="hero__left" style={{ position: "relative" }}>
+          <p className="hero__welcome" style={{ position: "relative", zIndex: 1 }}>Welcome to AML Exports</p>
 
           <div className="hero__badge">
             <span className="hero__badge-dot" />

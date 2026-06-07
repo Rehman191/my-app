@@ -17,7 +17,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     image: "/images/team-tariq.png",
     experience: "22+ Years in Geology & Sourcing",
     bio: "Tariq oversees quarry operations and strategic mining partnerships throughout Pakistan's mineral-rich northern territories.",
-    email: "tariq@mineralexp.com",
+    email: "tariq@amlexports.com",
     linkedin: "https://linkedin.com/in/placeholder-tariq",
   },
   {
@@ -26,7 +26,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     image: "/images/team-yasmin.png",
     experience: "15+ Years in Mineralogy & QA",
     bio: "Holding a PhD in Mineralogy, Yasmin directs laboratory testing, chemical analysis, and international ISO certification compliance.",
-    email: "yasmin.k@mineralexp.com",
+    email: "yasmin.k@amlexports.com",
     linkedin: "https://linkedin.com/in/placeholder-yasmin",
   },
   {
@@ -35,7 +35,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     image: "/images/team-zubair.png",
     experience: "18+ Years in Global Trade Logistics",
     bio: "Zubair manages international cargo shipments, custom clearances, and C-TPAT supply chain security frameworks.",
-    email: "zubair.am@mineralexp.com",
+    email: "zubair.am@amlexports.com",
     linkedin: "https://linkedin.com/in/placeholder-zubair",
   }
 ];

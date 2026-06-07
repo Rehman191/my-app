@@ -25,21 +25,12 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="container navbar__inner">
         {/* Logo */}
-        <a href="#home" className="navbar__logo">
-          <div className="navbar__logo-icon">
-            <svg viewBox="0 0 40 40" fill="none" width="36" height="36">
-              <polygon points="20,4 36,13 36,27 20,36 4,27 4,13"
-                fill="var(--orange)" opacity="0.15" stroke="var(--orange)" strokeWidth="1.5" />
-              <polygon points="20,9 31,16 31,24 20,31 9,24 9,16"
-                fill="none" stroke="var(--orange)" strokeWidth="1" />
-              <circle cx="20" cy="20" r="4.5" fill="var(--orange)" />
-              <circle cx="20" cy="20" r="2" fill="white" />
-            </svg>
-          </div>
-          <div className="navbar__logo-text">
-            <span className="navbar__logo-name">Mineral <em>Exp</em></span>
-            <span className="navbar__logo-tag">International</span>
-          </div>
+        <a href="#home" className="navbar__logo" style={{ display: "flex", alignItems: "center" }}>
+          <img 
+            src="/images/logo.png" 
+            alt="AML Exports Logo" 
+            style={{ height: "58px", width: "auto", objectFit: "contain" }}
+          />
         </a>
 
         {/* Desktop Links */}

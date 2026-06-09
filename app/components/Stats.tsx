@@ -114,7 +114,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="impact" style={{ background: "#303439", padding: "100px 0", position: "relative", overflow: "hidden" }}>
+    <section ref={sectionRef} id="impact" style={{ background: "var(--dark)", padding: "100px 0", position: "relative", overflow: "hidden" }}>
       {/* Subtle background watermark */}
       <div style={{
         position: "absolute",
@@ -133,7 +133,7 @@ export default function Stats() {
       {/* Subtle pattern */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: "radial-gradient(rgba(220, 184, 75, 0.05) 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(rgba(var(--orange-rgb), 0.05) 1px, transparent 1px)",
         backgroundSize: "40px 40px",
       }} />
 
@@ -141,7 +141,7 @@ export default function Stats() {
       <div style={{
         position: "absolute", top: "-200px", right: "-100px",
         width: "500px", height: "500px", borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(220, 184, 75, 0.1) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(var(--orange-rgb), 0.1) 0%, transparent 70%)",
         filter: "blur(60px)", pointerEvents: "none",
       }} />
 
@@ -184,8 +184,8 @@ export default function Stats() {
                   display: "inline-flex", alignItems: "center", gap: "6px",
                   fontFamily: "'Manrope', sans-serif", fontSize: "0.625rem", fontWeight: 700,
                   letterSpacing: "1.5px", textTransform: "uppercase" as const,
-                  color: "rgba(220, 184, 75, 0.8)", background: "rgba(220, 184, 75, 0.08)",
-                  border: "1px solid rgba(220, 184, 75, 0.2)", padding: "6px 12px", borderRadius: "3px",
+                  color: "rgba(var(--orange-rgb), 0.8)", background: "rgba(var(--orange-rgb), 0.08)",
+                  border: "1px solid rgba(var(--orange-rgb), 0.2)", padding: "6px 12px", borderRadius: "3px",
                 }}>
                   <svg viewBox="0 0 14 14" fill="none" width="9" height="9">
                     <path d="M12 3L5.5 9.5 2 6" stroke="var(--orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

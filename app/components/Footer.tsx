@@ -189,7 +189,7 @@ export default function Footer() {
 
       <style jsx>{`
         .footer {
-          background: #303439;
+          background: var(--dark);
           color: rgba(255,255,255,0.45);
           font-family: 'Manrope', sans-serif;
         }
@@ -205,7 +205,7 @@ export default function Footer() {
         }
         .footer__col--newsletter:hover {
           background: rgba(255, 255, 255, 0.035);
-          border-color: rgba(220, 184, 75, 0.25);
+          border-color: rgba(var(--orange-rgb), 0.25);
           transform: translateY(-4px);
           box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
@@ -235,7 +235,7 @@ export default function Footer() {
         .footer__input-group:focus-within {
           border-color: var(--orange);
           background: rgba(255, 255, 255, 0.06);
-          box-shadow: 0 0 0 3px rgba(220, 184, 75, 0.15);
+          box-shadow: 0 0 0 3px rgba(var(--orange-rgb), 0.15);
         }
         .footer__input-group--submitted {
           border-color: #48bb78 !important;
@@ -270,7 +270,7 @@ export default function Footer() {
           width: 36px;
           height: 36px;
           background: var(--orange);
-          color: var(--dark-3);
+          color: var(--white);
           border: none;
           border-radius: 4px;
           display: flex;
@@ -352,9 +352,9 @@ export default function Footer() {
           font-weight: 700;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          color: rgba(220, 184, 75, 0.8);
-          background: rgba(220, 184, 75, 0.08);
-          border: 1px solid rgba(220, 184, 75, 0.15);
+          color: rgba(var(--orange-rgb), 0.8);
+          background: rgba(var(--orange-rgb), 0.08);
+          border: 1px solid rgba(var(--orange-rgb), 0.15);
           padding: 4px 10px;
           border-radius: 3px;
         }
@@ -379,7 +379,7 @@ export default function Footer() {
         .footer__social:hover {
           background: var(--orange);
           border-color: var(--orange);
-          color: var(--dark-3);
+          color: var(--white);
         }
 
         /* Columns */

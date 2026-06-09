@@ -150,7 +150,7 @@ export default function Features() {
         }
         .feature-card:hover .feature-card__icon-box {
           background: var(--orange);
-          color: var(--dark-3);
+          color: var(--white);
         }
 
         .feature-card__title {

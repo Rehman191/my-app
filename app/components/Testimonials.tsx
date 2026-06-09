@@ -101,7 +101,7 @@ export default function Testimonials() {
 
         /* Feature */
         .testi__feature {
-          background: #303439;
+          background: var(--dark-2);
           padding: 52px 48px 44px;
           border-radius: 6px;
           position: relative;
@@ -176,7 +176,7 @@ export default function Testimonials() {
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
-          color: rgba(252, 185, 0,0.7);
+          color: rgba(var(--orange-rgb),0.7);
           margin-top: 4px;
         }
 
@@ -226,8 +226,8 @@ export default function Testimonials() {
         }
         .testi__tab--active,
         .testi__tab:hover {
-          border-color: rgba(252, 185, 0,0.25);
-          background: rgba(252, 185, 0,0.03);
+          border-color: rgba(var(--orange-rgb),0.25);
+          background: rgba(var(--orange-rgb),0.03);
           box-shadow: 0 4px 16px rgba(0,0,0,0.06);
         }
         .testi__tab--active::before,
@@ -267,7 +267,7 @@ export default function Testimonials() {
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
-          color: rgba(252, 185, 0,0.7);
+          color: rgba(var(--orange-rgb),0.7);
         }
 
         /* Trust strip */

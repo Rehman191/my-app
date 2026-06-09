@@ -1,6 +1,6 @@
 /* ─── Top Bar ─── */
 .top-bar {
-  background: #303439;
+  background: var(--dark-2);
   color: rgba(255, 255, 255, 0.55);
   font-family: var(--font-body), "Manrope", sans-serif;
   font-size: 0.8rem;
@@ -202,8 +202,7 @@
   font-family: var(--font-heading), "Poppins", sans-serif;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--dark-3);
-  background: var(--orange);
+  color: var(--white); background: var(--orange);
   padding: 10px 22px;
   border-radius: 4px;
   text-decoration: none;
@@ -215,7 +214,7 @@
 .navbar__cta:hover {
   background: var(--orange-dark);
   border-color: var(--orange-dark);
-  color: var(--dark-3);
+  color: var(--white);
   transform: translateY(-1px);
   box-shadow: var(--shadow-orange);
 }
@@ -342,7 +341,7 @@
 .hero__overlay-base {
   position: absolute;
   inset: 0;
-  background: rgba(48, 52, 57, 0.72);
+  background: rgba(11, 37, 69, 0.72);
 }
 
 .hero__overlay-left {
@@ -350,9 +349,9 @@
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(48, 52, 57, 0.9) 0%,
-    rgba(48, 52, 57, 0.75) 50%,
-    rgba(48, 52, 57, 0.3) 100%
+    rgba(11, 37, 69, 0.9) 0%,
+    rgba(11, 37, 69, 0.75) 50%,
+    rgba(11, 37, 69, 0.3) 100%
   );
 }
 
@@ -362,7 +361,7 @@
   left: 0;
   right: 0;
   height: 220px;
-  background: linear-gradient(to top, rgba(48, 52, 57, 0.85), transparent);
+  background: linear-gradient(to top, rgba(11, 37, 69, 0.85), transparent);
 }
 
 .hero__body {
@@ -395,8 +394,8 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
-  background: rgba(220, 184, 75, 0.13);
-  border: 1px solid rgba(220, 184, 75, 0.22);
+  background: rgba(var(--orange-rgb), 0.13);
+  border: 1px solid rgba(var(--orange-rgb), 0.22);
   padding: 6px 14px;
   border-radius: 40px;
   margin-bottom: 24px;
@@ -485,8 +484,7 @@
   font-family: var(--font-heading), "Poppins", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
-  color: var(--dark-3);
-  background: var(--orange);
+  color: var(--white); background: var(--orange);
   padding: 13px 26px;
   border-radius: 6px;
   text-decoration: none;
@@ -497,9 +495,9 @@
 .hero__btn-primary:hover {
   background: var(--orange-dark);
   border-color: var(--orange-dark);
-  color: var(--dark-3);
+  color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(220, 184, 75, 0.35);
+  box-shadow: 0 8px 24px rgba(var(--orange-rgb), 0.35);
 }
 
 .hero__btn-check {
@@ -520,9 +518,9 @@
 
 .hero__btn-check:hover,
 .hero__btn-check--active {
-  background: rgba(220, 184, 75, 0.12);
-  border-color: rgba(220, 184, 75, 0.45);
-  color: var(--orange);
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
 }
 
 .hero__stats {
@@ -593,7 +591,7 @@
 .hero__trust-bar {
   position: relative;
   z-index: 2;
-  background: rgba(48, 52, 57, 0.6);
+  background: rgba(11, 37, 69, 0.6);
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(8px);
   padding: 14px 0;
@@ -651,7 +649,7 @@
 .hero__scroll-mouse {
   width: 20px;
   height: 32px;
-  border: 1.5px solid rgba(220, 184, 75, 0.35);
+  border: 1.5px solid rgba(var(--orange-rgb), 0.35);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -786,7 +784,7 @@
     justify-content: space-between;
     padding: 14px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(220, 184, 75, 0.07);
+    background: rgba(var(--orange-rgb), 0.07);
     position: sticky;
     top: 0;
     z-index: 1;
@@ -802,8 +800,8 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    border: 1.5px solid rgba(220, 184, 75, 0.4);
-    background: rgba(220, 184, 75, 0.1);
+    border: 1.5px solid rgba(var(--orange-rgb), 0.4);
+    background: rgba(var(--orange-rgb), 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -842,8 +840,8 @@
   }
 
   .hero__sheet-close:hover {
-    background: rgba(220, 184, 75, 0.15);
-    border-color: rgba(220, 184, 75, 0.4);
+    background: rgba(var(--orange-rgb), 0.15);
+    border-color: rgba(var(--orange-rgb), 0.4);
     color: var(--orange);
   }
 
@@ -931,7 +929,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 2px solid #dcb84b;
+  border: 2px solid var(--orange);
   background: #ffffff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   opacity: 0;
@@ -946,20 +944,20 @@
 }
 
 .float-actions__top:hover {
-  background: #dcb84b;
+  background: var(--orange);
 }
 
 .float-actions__top:hover svg {
-  stroke: #24282c;
+  stroke: var(--white);
 }
 
 .float-actions__export {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #e8c96a, #dcb84b);
-  border: 2px solid #dcb84b;
-  box-shadow: 0 6px 20px rgba(220, 184, 75, 0.4);
+  background: linear-gradient(135deg, var(--orange-light), var(--orange));
+  border: 2px solid var(--orange);
+  box-shadow: 0 6px 20px rgba(var(--orange-rgb), 0.4);
 }
 
 .float-actions__export:hover {
@@ -1033,9 +1031,9 @@
 }
 
 .export-modal__close:hover {
-  background: rgba(220, 184, 75, 0.2);
-  border-color: rgba(220, 184, 75, 0.45);
-  color: #dcb84b;
+  background: rgba(var(--orange-rgb), 0.2);
+  border-color: rgba(var(--orange-rgb), 0.45);
+  color: var(--orange);
 }
 
 @keyframes exportModalIn {
@@ -1052,7 +1050,7 @@
 
 /* ─── Footer export CTA ─── */
 .footer__export-cta {
-  background: rgba(220, 184, 75, 0.08);
+  background: rgba(var(--orange-rgb), 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 28px 0;
 }
@@ -1087,9 +1085,9 @@
   font-family: var(--font-heading), "Poppins", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #24282c;
-  background: #dcb84b;
-  border: 2px solid #dcb84b;
+  color: var(--white);
+  background: var(--orange);
+  border: 2px solid var(--orange);
   border-radius: 6px;
   padding: 12px 22px;
   cursor: pointer;
@@ -1098,8 +1096,8 @@
 }
 
 .footer__export-cta-btn:hover {
-  background: #c3a23d;
-  border-color: #c3a23d;
+  background: var(--orange-dark);
+  border-color: var(--orange-dark);
   transform: translateY(-1px);
 }
 

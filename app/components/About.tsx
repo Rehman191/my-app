@@ -58,7 +58,7 @@ export default function About() {
               ].map((item) => (
                 <div className="about__check-item" key={item}>
                   <span className="about__check-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--dark-3)" strokeWidth="3" width="11" height="11">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" strokeWidth="3" width="11" height="11">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   </span>
@@ -133,11 +133,11 @@ export default function About() {
           bottom: 20px;
           left: -24px;
           background: var(--orange);
-          color: var(--dark-3);
+          color: var(--white);
           padding: 20px 24px;
           border-radius: 4px;
           text-align: center;
-          box-shadow: 0 8px 32px rgba(220, 184, 75, 0.3);
+          box-shadow: 0 8px 32px rgba(var(--orange-rgb), 0.3);
           z-index: 3;
         }
         .about__badge-num {
@@ -146,7 +146,7 @@ export default function About() {
           font-weight: 700;
           font-size: 2.25rem;
           line-height: 1;
-          color: var(--dark-3);
+          color: var(--white);
         }
         .about__badge-txt {
           display: block;
@@ -155,7 +155,7 @@ export default function About() {
           font-weight: 600;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          color: rgba(48, 52, 57, 0.8);
+          color: rgba(255, 255, 255, 0.95);
           margin-top: 6px;
         }
 

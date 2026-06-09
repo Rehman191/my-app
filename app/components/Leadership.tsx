@@ -131,7 +131,7 @@ export default function Leadership() {
 
         .team-card:hover {
           transform: translateY(-5px);
-          border-color: rgba(252, 185, 0,0.25);
+          border-color: rgba(var(--orange-rgb),0.25);
           box-shadow: 0 16px 40px rgba(0,0,0,0.08);
         }
 

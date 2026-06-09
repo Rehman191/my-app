@@ -576,8 +576,8 @@ export default function Certifications() {
           font-family: 'Poppins', sans-serif;
           font-weight: 600;
           font-size: 0.75rem;
-          color: var(--orange);
-          background: transparent;
+          color: #ffffff;
+          background: var(--orange);
           border: 1.5px solid var(--orange);
           padding: 6px 16px;
           border-radius: 4px;
@@ -590,7 +590,8 @@ export default function Certifications() {
         }
 
         .verify-btn:hover {
-          background: var(--orange);
+          background: var(--orange-dark);
+          border-color: var(--orange-dark);
           color: #ffffff;
         }
 

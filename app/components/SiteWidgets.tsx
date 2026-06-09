@@ -58,7 +58,7 @@ export default function SiteWidgets() {
           aria-label="Scroll to top"
           title="Back to top"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c3a23d" strokeWidth="2.5" width="20" height="20">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" strokeWidth="2.5" width="20" height="20">
             <polyline points="18 15 12 9 6 15" />
           </svg>
         </button>
@@ -70,7 +70,7 @@ export default function SiteWidgets() {
           aria-label="60-Second Export Check"
           title="60-Second Export Check"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="#24282c" strokeWidth="2" width="22" height="22">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" strokeWidth="2" width="22" height="22">
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import ExportCheck from "./ExportCheck";
 
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "923008501545";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello, I am interested in mineral exports from AML Exports."
 );
@@ -67,8 +67,8 @@ export default function SiteWidgets() {
           type="button"
           className="float-actions__btn float-actions__export"
           onClick={() => setExportOpen(true)}
-          aria-label="60-Second Export Check"
-          title="60-Second Export Check"
+          aria-label="60-Second Export Quote"
+          title="60-Second Export Quote"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" strokeWidth="2" width="22" height="22">
             <circle cx="12" cy="12" r="10" />
@@ -94,7 +94,7 @@ export default function SiteWidgets() {
       </div>
 
       {exportOpen && (
-        <div className="export-modal" role="dialog" aria-modal="true" aria-label="60-Second Export Check">
+        <div className="export-modal" role="dialog" aria-modal="true" aria-label="60-Second Export Quote">
           <button
             type="button"
             className="export-modal__backdrop"
@@ -106,7 +106,7 @@ export default function SiteWidgets() {
               type="button"
               className="export-modal__close"
               onClick={() => setExportOpen(false)}
-              aria-label="Close export check"
+              aria-label="Close export quote"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="20" height="20">
                 <line x1="18" y1="6" x2="6" y2="18" />

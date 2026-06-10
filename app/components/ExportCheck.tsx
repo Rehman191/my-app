@@ -84,7 +84,7 @@ export default function ExportCheck() {
             </svg>
           </div>
           <div>
-            <div className="cw-head__name">60-Second Export Check</div>
+            <div className="cw-head__name">60-Second Export Quote</div>
             <div className="cw-head__sub">
               {stage === "quiz"
                 ? "Get a tailored quote in minutes"

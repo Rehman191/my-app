@@ -1,198 +1,300 @@
 "use client";
 
-const MINERALS = [
-  { name: "Pink Himalayan Salt", origin: "Khewra, Punjab", img: "/images/himalayan-salt.png", desc: "World's purest salt from ancient 250-million-year-old Himalayan formations." },
-  { name: "Emerald (Panna)", origin: "Swat, KPK", img: "/images/emerald.png", desc: "Exceptional clarity emeralds from Swat valley, prized by collectors worldwide." },
-  { name: "Ruby", origin: "Hunza, Gilgit-Baltistan", img: "/images/ruby.png", desc: "Deep red rubies from the Karakoram range with extraordinary color saturation." },
-  { name: "China Clay", origin: "Swat & Punjab, Pakistan", img: "/images/china-clay.png", desc: "Premium washed china clay powder for ceramics, paper, rubber, paint, and industrial manufacturing." },
-  { name: "Talc", origin: "Malakand, KPK", img: "/images/talc.jpg", desc: "High-purity talc for plastics, cosmetics, ceramics, and industrial applications — exported worldwide." },
-  { name: "Aquamarine", origin: "Shigar, Gilgit-Baltistan", img: "/images/aquamarine.png", desc: "Crystal-clear aquamarines from glacier valleys of northern Pakistan." },
-  { name: "Copper Ore", origin: "Reko Diq, Balochistan", img: "/images/copper-ore.png", desc: "Premium copper ore from one of the world's largest untapped copper-gold deposits at Reko Diq." },
-  { name: "Palm Oil", origin: "Sindh & Punjab", img: "/images/palm-oil.png", desc: "High-quality refined and crude palm oil, meeting international food-grade and industrial standards for global markets." },
-];
-
 export default function Minerals() {
   return (
-    <section className="minerals section pmi-section-band" id="minerals">
-      <div className="container">
-        <div className="minerals__header">
-          <div>
-            <span className="section-label">Our Products</span>
-            <h2 className="section-title">Minerals Manufacturer in Pakistan —<br />No.1 Exporters to Worldwide Markets</h2>
-            <span className="section-divider" />
-          </div>
-          <p className="minerals__intro">
-            Pakistan&apos;s finest natural resources — precious gemstones from the Karakoram, industrial minerals from Balochistan, and high-value commodities for global markets.
+    <section className="minerals-section" id="minerals">
+      
+      {/* SECTION HEADER */}
+      <div className="section-main-header">
+        <div className="container">
+          <span className="section-label">Capabilities</span>
+          <h2 className="section-title">Global Export &amp; Logistics Infrastructure</h2>
+          <span className="section-divider" />
+          <p className="section-subtitle">
+            AML Exports integrates procurement networks with direct shipping logistics to facilitate secure mineral transit globally.
           </p>
         </div>
+      </div>
 
-        <div className="minerals__grid">
-          {MINERALS.map((m, i) => {
-            const delayClass = i % 4 === 1 ? " delay-100" : i % 4 === 2 ? " delay-200" : i % 4 === 3 ? " delay-300" : "";
-            return (
-              <article className={`mineral-card reveal${delayClass}`} key={m.name}>
-                <div className="mineral-card__img-wrap">
-                  <img src={m.img} alt={m.name} className="mineral-card__img" />
-                  <div className="mineral-card__overlay">
-                    <h3 className="mineral-card__overlay-name">{m.name}</h3>
-                  </div>
+      {/* PART 1: PREMIUM MINERAL EXPORTING */}
+      <div className="sub-section sub-section--light">
+        <div className="container">
+          <div className="sub-section__grid">
+            <div className="sub-section__content reveal">
+              <span className="sub-label">01 / Procurement &amp; Grading</span>
+              <h3 className="sub-title">Sourcing &amp; Exporting Pakistan&apos;s Finest Resources</h3>
+              <p className="sub-text">
+                Pakistan&apos;s rich geological formations host world-class mineral deposits, gemstones, and industrial ores. At AML Exports, we establish direct sourcing channels across Punjab, KPK, Balochistan, and Gilgit-Baltistan to procure raw materials of certified composition.
+              </p>
+              <p className="sub-text">
+                We work directly with international industrial buyers and manufacturers to sort, grade, wash, and package minerals to their specific purity and size requirements, facilitating seamless supply entry.
+              </p>
+            </div>
+            <div className="sub-section__features reveal delay-100">
+              <div className="feature-item">
+                <div className="feature-icon-bullet">✓</div>
+                <div>
+                  <h4 className="feature-item-title">Custom Grading &amp; Sorting</h4>
+                  <p className="feature-item-desc">Materials are custom-sorted by grade, size, and purity before packaging.</p>
                 </div>
-
-                <div className="mineral-card__body">
-                  <div className="mineral-card__origin">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="12" height="12">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    {m.origin}
-                  </div>
-                  <p className="mineral-card__desc">{m.desc}</p>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon-bullet">✓</div>
+                <div>
+                  <h4 className="feature-item-title">Bulk &amp; Containerized Loads</h4>
+                  <p className="feature-item-desc">Capacity to handle high-tonnage bulk orders as well as secure container shipments.</p>
                 </div>
-
-                <div className="mineral-card__footer">
-                  <a href="#contact" className="mineral-card__cta">
-                    Inquire Now
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="13" height="13">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon-bullet">✓</div>
+                <div>
+                  <h4 className="feature-item-title">Purity Verification</h4>
+                  <p className="feature-item-desc">All exports are verified through lab-grade chemical analysis certificates.</p>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div style={{ textAlign: "center", marginTop: "56px" }}>
-          <a href="#contact" className="btn btn-primary" id="minerals-catalog-btn">
-            Request Full Catalog
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="15" height="15">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
+      {/* PART 2: INTEGRATED LOGISTICS BY AML LOGISTICS */}
+      <div className="sub-section sub-section--darker">
+        <div className="container">
+          <div className="sub-section__grid sub-section__grid--reverse">
+            <div className="sub-section__content reveal">
+              <span className="sub-label">02 / Integrated Supply Chain</span>
+              <h3 className="sub-title">The AML Logistics Edge</h3>
+              <p className="sub-text">
+                International trade is only as reliable as its supply chain. To ensure zero-delay shipments, our dedicated logistics division, AML Logistics, manages the entire journey from the quarry gates to the shipping vessel.
+              </p>
+              <p className="sub-text">
+                By controlling land transit, secure warehousing depots, customs clearing agent protocols, and booking space with leading global shipping lines, we guarantee a secure and predictable export experience.
+              </p>
+            </div>
+            <div className="sub-section__features reveal delay-100">
+              <div className="feature-item">
+                <div className="feature-icon-bullet">✓</div>
+                <div>
+                  <h4 className="feature-item-title">Customs Clearance &amp; Brokerage</h4>
+                  <p className="feature-item-desc">Direct management of customs declaration documents at port hubs.</p>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon-bullet">✓</div>
+                <div>
+                  <h4 className="feature-item-title">Secure Land &amp; Port Transit</h4>
+                  <p className="feature-item-desc">Tamper-proof container loading and transit tracking to Karachi ports.</p>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon-bullet">✓</div>
+                <div>
+                  <h4 className="feature-item-title">Global Freight Agreements</h4>
+                  <p className="feature-item-desc">Pre-negotiated contract rates with major ocean carriers for steady pricing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* PART 3: ACCREDITATION & COMPLIANCE */}
+      <div className="sub-section sub-section--light last-sub-section">
+        <div className="container">
+          <div className="compliance-row reveal">
+            <div className="compliance-text">
+              <h3 className="compliance-title">A Secure, Fully Licensed Exporter</h3>
+              <p className="compliance-desc">
+                AML Exports (Pvt) Ltd is registered with the Securities &amp; Exchange Commission of Pakistan (SECP) and the Federal Board of Revenue (FBR). We operate in strict compliance with international customs trade partnership regulations and Chamber of Commerce frameworks, providing buyers with absolute legal protection and contract assurance.
+              </p>
+            </div>
+            <div className="compliance-action">
+              <a href="#contact" className="btn btn-primary" id="minerals-inquiry-btn">
+                Inquire About Exporting
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="15" height="15">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
       <style jsx>{`
-        .minerals { background: var(--gray-50); }
-
-        .minerals__header {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          gap: 48px;
-          margin-bottom: 48px;
-        }
-        .minerals__intro {
-          font-size: 1rem;
-          color: var(--color-text);
-          max-width: 400px;
-          line-height: 1.75;
-          text-align: right;
-          font-family: var(--font-body);
+        .minerals-section {
+          background: #ffffff;
         }
 
-        .minerals__grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-        }
-
-        .mineral-card {
-          background: var(--white);
-          border: 1px solid var(--color-border);
-          border-radius: 4px;
-          overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
-        }
-        .mineral-card:hover {
-          box-shadow: var(--shadow-card-hover);
-          transform: translateY(-4px);
-          border-color: rgba(220, 184, 75, 0.35);
-        }
-
-        .mineral-card__img-wrap {
-          position: relative;
-          overflow: hidden;
-          aspect-ratio: 1;
-        }
-        .mineral-card__img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.5s ease;
-        }
-        .mineral-card:hover .mineral-card__img { transform: scale(1.05); }
-
-        .mineral-card__overlay {
-          position: absolute;
-          inset: auto 0 0 0;
-          padding: 14px 16px;
-          background: linear-gradient(to top, rgba(48, 52, 57, 0.92) 0%, rgba(48, 52, 57, 0.55) 70%, transparent 100%);
-        }
-        .mineral-card__overlay-name {
-          font-family: var(--font-heading);
-          font-weight: 600;
-          font-size: 0.9375rem;
-          color: var(--white);
-          line-height: 1.3;
-          margin: 0;
-        }
-
-        .mineral-card__body {
-          padding: 16px 18px 12px;
-          flex: 1;
+        .section-main-header {
+          padding: 100px 0 60px;
           text-align: center;
-        }
-        .mineral-card__origin {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 5px;
-          font-family: var(--font-body);
-          font-size: 0.6875rem;
-          font-weight: 600;
-          letter-spacing: 0.5px;
-          color: var(--orange);
-          margin-bottom: 8px;
-        }
-        .mineral-card__desc {
-          font-family: var(--font-body);
-          font-size: 0.8125rem;
-          color: var(--gray-600);
-          line-height: 1.65;
-          margin: 0;
+          border-top: 1px solid #f0f0f0;
         }
 
-        .mineral-card__footer {
-          padding: 12px 18px 16px;
-          border-top: 1px solid var(--gray-100);
-          text-align: center;
+        .sub-section {
+          padding: 80px 0;
+          border-top: 1px solid #f0f0f0;
         }
-        .mineral-card__cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          font-family: var(--font-body);
-          font-size: 0.8rem;
+
+        .sub-section--light {
+          background: #ffffff;
+        }
+
+        .sub-section--darker {
+          background: #f9fbfc;
+        }
+
+        .sub-label {
+          font-family: 'Poppins', sans-serif;
+          font-size: 0.75rem;
           font-weight: 700;
           color: var(--orange);
-          text-decoration: none;
-          transition: gap 0.2s ease, color 0.2s ease;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          display: block;
+          margin-bottom: 12px;
         }
-        .mineral-card__cta:hover { gap: 10px; color: var(--orange-dark); }
 
-        @media (max-width: 1200px) {
-          .minerals__grid { grid-template-columns: repeat(3, 1fr); }
+        .sub-title {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          color: #0b2545;
+          margin-bottom: 20px;
+          line-height: 1.25;
         }
-        @media (max-width: 1024px) {
-          .minerals__header { flex-direction: column; align-items: flex-start; }
-          .minerals__intro { text-align: left; max-width: 100%; }
-          .minerals__grid { grid-template-columns: repeat(3, 1fr); }
+
+        .sub-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.9375rem;
+          color: #465565;
+          line-height: 1.75;
+          margin-bottom: 16px;
         }
-        @media (max-width: 900px) { .minerals__grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 560px) { .minerals__grid { grid-template-columns: 1fr; } }
+
+        .sub-text:last-child {
+          margin-bottom: 0;
+        }
+
+        /* Sub section grid */
+        .sub-section__grid {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 60px;
+          align-items: center;
+        }
+
+        .sub-section__grid--reverse {
+          grid-template-columns: 0.9fr 1.1fr;
+        }
+
+        .sub-section__grid--reverse .sub-section__content {
+          order: 2;
+        }
+
+        .sub-section__grid--reverse .sub-section__features {
+          order: 1;
+        }
+
+        /* Features list inside subsections */
+        .sub-section__features {
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+        }
+
+        .feature-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        .feature-icon-bullet {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: rgba(27, 86, 172, 0.06);
+          color: var(--orange);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 900;
+          font-size: 0.75rem;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .feature-item-title {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: 1rem;
+          color: #0b2545;
+          margin-bottom: 4px;
+        }
+
+        .feature-item-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.85rem;
+          color: #627282;
+          line-height: 1.6;
+        }
+
+        /* Compliance Row */
+        .compliance-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 60px;
+        }
+
+        .compliance-text {
+          max-width: 700px;
+        }
+
+        .compliance-title {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: 1.35rem;
+          color: #0b2545;
+          margin-bottom: 12px;
+        }
+
+        .compliance-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.9rem;
+          color: #465565;
+          line-height: 1.7;
+        }
+
+        .last-sub-section {
+          border-bottom: 1px solid #f0f0f0;
+          padding-bottom: 100px;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+          .sub-section__grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+          .sub-section__grid--reverse {
+            grid-template-columns: 1fr;
+          }
+          .sub-section__grid--reverse .sub-section__content {
+            order: 1;
+          }
+          .sub-section__grid--reverse .sub-section__features {
+            order: 2;
+          }
+          .compliance-row {
+            flex-direction: column;
+            text-align: center;
+            gap: 24px;
+          }
+          .compliance-text {
+            max-width: 100%;
+          }
+        }
       `}</style>
     </section>
   );

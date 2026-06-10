@@ -7,8 +7,7 @@ import Leadership from "./components/Leadership";
 import Stats from "./components/Stats";
 import Certifications from "./components/Certifications";
 import Minerals from "./components/Minerals";
-import Testimonials from "./components/Testimonials";
-import Partners from "./components/Partners";
+import AmlLogisticsSection from "./components/AmlLogisticsSection";
 import CtaBanner from "./components/CtaBanner";
 import Footer from "./components/Footer";
 import RevealObserver from "./components/RevealObserver";
@@ -29,8 +28,7 @@ export default function Home() {
         <Stats />
         <Certifications />
         <Minerals />
-        <Testimonials />
-        <Partners />
+        <AmlLogisticsSection />
         <CtaBanner />
       </main>
 

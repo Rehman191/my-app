@@ -3,40 +3,36 @@
 interface TeamMember {
   name: string;
   role: string;
-  image: string;
+  monogram: string;
   bio: string;
   email: string;
   linkedin: string;
-  experience: string;
 }
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Muhammad Tariq",
-    role: "Founder & Managing Partner",
-    image: "/images/team-tariq.png",
-    experience: "22+ Years in Geology & Sourcing",
-    bio: "Tariq oversees quarry operations and strategic mining partnerships throughout Pakistan's mineral-rich northern territories.",
-    email: "tariq@amlexports.com",
-    linkedin: "https://linkedin.com/in/placeholder-tariq",
+    name: "Sagheer Malik",
+    role: "Chief Executive Officer",
+    monogram: "SM",
+    bio: "Sagheer drives the overarching vision and international commercial strategy for AML Exports. Under his leadership, the company has established direct partnerships with premier global buyers and modern mineral processing lines.",
+    email: "sagheer.malik@amlexports.com",
+    linkedin: "https://linkedin.com/in/sagheer-malik",
   },
   {
-    name: "Dr. Yasmin Khan",
-    role: "Partner & Head of Quality",
-    image: "/images/team-yasmin.png",
-    experience: "15+ Years in Mineralogy & QA",
-    bio: "Holding a PhD in Mineralogy, Yasmin directs laboratory testing, chemical analysis, and international ISO certification compliance.",
-    email: "yasmin.k@amlexports.com",
-    linkedin: "https://linkedin.com/in/placeholder-yasmin",
+    name: "Talha Sagheer",
+    role: "Managing Director",
+    monogram: "TS",
+    bio: "Talha directs the supply chain operations, ensuring that logistics, custom clearance, and international shipping protocols meet the highest standards of efficiency. He bridges the gap between field production and port delivery.",
+    email: "talha.sagheer@amlexports.com",
+    linkedin: "https://linkedin.com/in/talha-sagheer",
   },
   {
-    name: "Zubair Al-Mahmood",
-    role: "Partner & Logistics Director",
-    image: "/images/team-zubair.png",
-    experience: "18+ Years in Global Trade Logistics",
-    bio: "Zubair manages international cargo shipments, custom clearances, and C-TPAT supply chain security frameworks.",
-    email: "zubair.am@amlexports.com",
-    linkedin: "https://linkedin.com/in/placeholder-zubair",
+    name: "Khurram Bashir",
+    role: "General Manager",
+    monogram: "KB",
+    bio: "Khurram manages on-site extraction, quality validation laboratories, and environmental compliance at our Northern quarries. He ensures every batch of exports meets strict ISO and international grade specifications.",
+    email: "khurram.bashir@amlexports.com",
+    linkedin: "https://linkedin.com/in/khurram-bashir",
   }
 ];
 
@@ -47,11 +43,11 @@ export default function Leadership() {
         
         {/* Section Header */}
         <div className="section-center" style={{ marginBottom: "60px" }}>
-          <span className="section-label">Our Leadership</span>
+          <span className="section-label">Executive Leadership</span>
           <h2 className="section-title">Owners & Partners</h2>
           <span className="section-divider" />
           <p className="section-subtitle">
-            A partnership of experienced geologists, mining operations managers, and international trade compliance specialists leading Pakistan's premium mineral exports.
+            A distinguished leadership team driving excellence, sustainable quarry operations, and reliable international trade compliance.
           </p>
         </div>
 
@@ -62,34 +58,31 @@ export default function Leadership() {
             return (
               <div className={`team-card reveal${delayClass}`} key={member.name}>
                 
-                {/* Image Frame */}
-                <div className="team-image-wrapper">
-                  <img 
-                    src={member.image} 
-                    alt={`${member.name} - ${member.role}`} 
-                    className="team-image"
-                  />
-                  <div className="team-overlay">
-                    <p className="team-overlay-bio">{member.bio}</p>
-                  </div>
-                </div>
-
                 {/* Card Details */}
                 <div className="team-info">
-                  <span className="team-role-tag">{member.role}</span>
+                  {/* Card Header with Role & Monogram */}
+                  <div className="team-card-header">
+                    <span className="team-role-pill">{member.role}</span>
+                    <div className="team-monogram-badge">{member.monogram}</div>
+                  </div>
+
                   <h3 className="team-name">{member.name}</h3>
-                  <span className="team-experience">{member.experience}</span>
+
+                  {/* Biography Quote Block */}
+                  <div className="bio-container">
+                    <p className="team-bio">{member.bio}</p>
+                  </div>
                   
-                  {/* Footer contacts */}
-                  <div className="team-contact">
-                    <a href={`mailto:${member.email}`} className="contact-icon-link" title={`Email ${member.name}`}>
+                  {/* Footer Contacts */}
+                  <div className="team-footer">
+                    <a href={`mailto:${member.email}`} className="team-email-btn" title={`Email ${member.name}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
                       </svg>
                       <span className="contact-label">{member.email}</span>
                     </a>
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link" title="LinkedIn Profile">
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-linkedin-btn" title="LinkedIn Profile">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                         <rect x="2" y="9" width="4" height="12" />
@@ -119,124 +112,127 @@ export default function Leadership() {
         }
 
         .team-card {
-          background: #ffffff;
-          border: 1px solid #e8e8e8;
-          border-radius: 8px;
+          background: linear-gradient(135deg, #ffffff 0%, #f9fbfc 100%);
+          border: 1px solid rgba(27, 86, 172, 0.08);
+          border-top: 4px solid var(--orange);
+          border-radius: 12px;
           overflow: hidden;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-          transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 10px 30px rgba(11, 37, 69, 0.02);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           display: flex;
           flex-direction: column;
+          position: relative;
+        }
+
+        .team-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 12px;
+          border: 1.5px solid transparent;
+          pointer-events: none;
+          transition: border-color 0.4s ease;
         }
 
         .team-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(var(--orange-rgb),0.25);
-          box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+          transform: translateY(-8px);
+          border-color: rgba(27, 86, 172, 0.2);
+          box-shadow: 0 20px 45px rgba(27, 86, 172, 0.08);
         }
 
-        .team-image-wrapper {
-          position: relative;
-          overflow: hidden;
-          aspect-ratio: 4/5;
-          width: 100%;
-          background: #f7f7f7;
-        }
-
-        .team-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .team-card:hover .team-image {
-          transform: scale(1.06);
-        }
-
-        .team-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(23,23,23,0.95) 0%, rgba(23,23,23,0.7) 100%);
-          display: flex;
-          align-items: flex-end;
-          padding: 24px;
-          opacity: 0;
-          transition: opacity 0.4s ease;
-          pointer-events: none;
-        }
-
-        .team-card:hover .team-overlay {
-          opacity: 1;
-        }
-
-        .team-overlay-bio {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.85rem;
-          color: rgba(255,255,255,0.9);
-          line-height: 1.6;
-          margin: 0;
-          transform: translateY(15px);
-          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .team-card:hover .team-overlay-bio {
-          transform: translateY(0);
+        .team-card:hover::after {
+          border-color: rgba(27, 86, 172, 0.2);
         }
 
         .team-info {
-          padding: 24px;
+          padding: 32px 28px 28px;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
         }
 
-        .team-role-tag {
+        .team-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 24px;
+        }
+
+        .team-role-pill {
           font-family: 'Manrope', sans-serif;
-          font-size: 0.6875rem;
+          font-size: 0.75rem;
           font-weight: 700;
-          letter-spacing: 1.5px;
+          letter-spacing: 1.2px;
           color: var(--orange);
+          background: rgba(27, 86, 172, 0.05);
+          padding: 6px 14px;
+          border-radius: 30px;
+          border: 1px solid rgba(27, 86, 172, 0.1);
           text-transform: uppercase;
-          margin-bottom: 8px;
+        }
+
+        .team-monogram-badge {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-serif), serif;
+          font-weight: 700;
+          font-size: 1.15rem;
+          box-shadow: 0 4px 12px rgba(27, 86, 172, 0.2);
+          transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .team-card:hover .team-monogram-badge {
+          transform: scale(1.1) rotate(5deg);
         }
 
         .team-name {
           font-family: 'Poppins', sans-serif;
           font-weight: 700;
-          font-size: 1.25rem;
-          color: #1d1d1d;
-          margin-bottom: 4px;
-          line-height: 1.2;
+          font-size: 1.35rem;
+          color: #0b2545;
+          margin-bottom: 16px;
+          line-height: 1.25;
         }
 
-        .team-experience {
+        .bio-container {
+          border-left: 2px solid var(--orange-light);
+          padding-left: 14px;
+          margin-bottom: 24px;
+        }
+
+        .team-bio {
           font-family: 'Manrope', sans-serif;
-          font-size: 0.8125rem;
-          color: #7a7a7a;
-          margin-bottom: 20px;
-          font-weight: 600;
+          font-size: 0.875rem;
+          color: #465565;
+          line-height: 1.65;
+          margin: 0;
         }
 
-        .team-contact {
+        .team-footer {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-top: 16px;
-          border-top: 1px solid #f3f3f3;
+          padding-top: 20px;
+          border-top: 1px solid #eceff2;
           margin-top: auto;
         }
 
-        .contact-icon-link {
+        .team-email-btn {
           display: inline-flex;
           align-items: center;
           gap: 8px;
           text-decoration: none;
-          color: #5a5a5a;
-          transition: color 0.2s ease;
+          color: #627282;
+          transition: color 0.25s ease;
         }
 
-        .contact-icon-link:hover {
+        .team-email-btn:hover {
           color: var(--orange);
         }
 
@@ -246,15 +242,24 @@ export default function Leadership() {
           font-weight: 500;
         }
 
-        .linkedin-link {
-          color: #5a5a5a;
+        .team-linkedin-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #f4f6f9;
+          color: #627282;
           display: flex;
           align-items: center;
-          transition: color 0.2s ease;
+          justify-content: center;
+          transition: all 0.25s ease;
+          text-decoration: none;
         }
 
-        .linkedin-link:hover {
-          color: var(--orange);
+        .team-linkedin-btn:hover {
+          background: var(--orange);
+          color: #ffffff;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(var(--orange-rgb), 0.25);
         }
 
         @media (max-width: 900px) {
@@ -268,7 +273,7 @@ export default function Leadership() {
             grid-template-columns: 1fr;
           }
           .team-info {
-            padding: 20px;
+            padding: 28px 20px 20px;
           }
         }
       `}</style>

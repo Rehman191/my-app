@@ -1,13 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, CSSProperties } from "react";
-
-const STATS = [
-  { value: 20, suffix: "+", label: "Years of Experience", description: "Decades of expertise in mineral sourcing & export" },
-  { value: 50, suffix: "+", label: "Countries Served", description: "Trusted buyers across every major continent" },
-  { value: 500, suffix: "+", label: "Mineral Types", description: "Extensive catalog of rare and common minerals" },
-  { value: 5000, suffix: "+", label: "Shipments Completed", description: "On-time delivery with full export compliance" },
-];
+import { useEffect, useRef, useState } from "react";
 
 function useCounter(target: number, duration: number, active: boolean) {
   const [count, setCount] = useState(0);
@@ -25,84 +18,10 @@ function useCounter(target: number, duration: number, active: boolean) {
   return count;
 }
 
-function StatCard({ value, suffix, label, description, active, isLast }: (typeof STATS)[0] & { active: boolean; isLast: boolean }) {
-  const [hovered, setHovered] = useState(false);
-  const count = useCounter(value, 2000, active);
-
-  return (
-    <div
-      className="stat-card-item"
-      style={{
-        padding: "48px 40px",
-        borderRight: isLast ? "none" : "1px solid rgba(255,255,255,0.1)",
-        background: hovered ? "rgba(255,255,255,0.05)" : "transparent",
-        transition: "background 0.3s ease",
-        cursor: "default",
-        position: "relative" as const,
-        overflow: "hidden",
-      } as CSSProperties}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Bottom accent */}
-      <div style={{
-        position: "absolute",
-        bottom: 0, left: 0,
-        height: "3px",
-        width: hovered ? "100%" : "0",
-        background: "var(--orange)",
-        transition: "width 0.4s cubic-bezier(0.4,0,0.2,1)",
-      }} />
-
-      {/* Number */}
-      <div style={{ display: "flex", alignItems: "baseline", gap: "2px", marginBottom: "8px" }}>
-        <span style={{
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: 700,
-          fontSize: "clamp(2.2rem, 6vw, 3.5rem)",
-          color: "#ffffff",
-          letterSpacing: "-2px",
-          lineHeight: 1,
-        }}>
-          {count.toLocaleString()}
-        </span>
-        <span style={{
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: 700,
-          fontSize: "1.75rem",
-          color: "var(--orange)",
-          letterSpacing: "-1px",
-          lineHeight: 1,
-        }}>
-          {suffix}
-        </span>
-      </div>
-
-      <h3 style={{
-        fontFamily: "'Poppins', sans-serif",
-        fontWeight: 600,
-        fontSize: "1rem",
-        color: "rgba(255,255,255,0.9)",
-        margin: "0 0 8px",
-      }}>
-        {label}
-      </h3>
-      <p style={{
-        fontFamily: "'Manrope', sans-serif",
-        fontSize: "0.85rem",
-        color: "rgba(255,255,255,0.4)",
-        lineHeight: 1.7,
-        margin: 0,
-      }}>
-        {description}
-      </p>
-    </div>
-  );
-}
-
 export default function Stats() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
+  const count = useCounter(20, 2000, active);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -114,7 +33,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="impact" style={{ background: "var(--dark)", padding: "100px 0", position: "relative", overflow: "hidden" }}>
+    <section ref={sectionRef} id="impact" style={{ background: "var(--dark)", padding: "120px 0", position: "relative", overflow: "hidden" }}>
       {/* Subtle background watermark */}
       <div style={{
         position: "absolute",
@@ -125,7 +44,7 @@ export default function Stats() {
         backgroundImage: "url('/images/logo-light.png')",
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
-        opacity: 0.07,
+        opacity: 0.04,
         pointerEvents: "none",
         zIndex: 0,
       }} aria-hidden="true" />
@@ -133,23 +52,23 @@ export default function Stats() {
       {/* Subtle pattern */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: "radial-gradient(rgba(var(--orange-rgb), 0.05) 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(rgba(var(--orange-rgb), 0.04) 1px, transparent 1px)",
         backgroundSize: "40px 40px",
       }} />
 
-      {/* Orange glow */}
+      {/* Blue glow */}
       <div style={{
         position: "absolute", top: "-200px", right: "-100px",
         width: "500px", height: "500px", borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(var(--orange-rgb), 0.1) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(var(--orange-rgb), 0.08) 0%, transparent 70%)",
         filter: "blur(60px)", pointerEvents: "none",
       }} />
 
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
-
-        {/* Header */}
-        <div className="stats-header">
-          <div>
+        <div className="impact-grid">
+          
+          {/* Left Column: Text Content */}
+          <div className="impact-left reveal">
             {/* Label */}
             <div style={{
               display: "flex", alignItems: "center", gap: "10px",
@@ -160,32 +79,25 @@ export default function Stats() {
               <span style={{ display: "block", width: "28px", height: "3px", background: "var(--orange)", borderRadius: "2px" }} />
               Our Impact
             </div>
-            <h2 style={{
-              fontFamily: "'Poppins', sans-serif", fontWeight: 700,
-              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
-              color: "#ffffff", lineHeight: 1.15, letterSpacing: "-1px", margin: 0,
-            }}>
+            
+            <h2 className="impact-title">
               Two Decades of<br/>
               <span style={{ color: "var(--orange)" }}>Proven Excellence</span>
             </h2>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: "'Manrope', sans-serif", fontSize: "1rem",
-              color: "rgba(255,255,255,0.5)", lineHeight: 1.85, margin: "0 0 28px",
-            }}>
-              Our numbers reflect years of hard work, global trust, and an unwavering commitment to
-              delivering Pakistan&apos;s finest minerals to markets worldwide.
+            
+            <p className="impact-desc">
+              AML Exports stands as a premier mineral logistics and trade facilitator in Pakistan. We ensure that raw materials are moved, cleared, and delivered efficiently under rigorous global quality parameters. Our established networks guarantee reliability from quarry sites to international harbors.
             </p>
+
             {/* Cert badges */}
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" as const }}>
-              {["ISO 9001:2015", "Export Licensed", "Lab Certified", "GIA Compliant"].map((b) => (
+              {["ISO 9001:2015", "Export Licensed", "Logistics Compliance", "Customs Bonded"].map((b) => (
                 <span key={b} style={{
                   display: "inline-flex", alignItems: "center", gap: "6px",
                   fontFamily: "'Manrope', sans-serif", fontSize: "0.625rem", fontWeight: 700,
                   letterSpacing: "1.5px", textTransform: "uppercase" as const,
-                  color: "rgba(var(--orange-rgb), 0.8)", background: "rgba(var(--orange-rgb), 0.08)",
-                  border: "1px solid rgba(var(--orange-rgb), 0.2)", padding: "6px 12px", borderRadius: "3px",
+                  color: "rgba(255, 255, 255, 0.7)", background: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)", padding: "6px 12px", borderRadius: "3px",
                 }}>
                   <svg viewBox="0 0 14 14" fill="none" width="9" height="9">
                     <path d="M12 3L5.5 9.5 2 6" stroke="var(--orange)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -195,85 +107,197 @@ export default function Stats() {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Stats grid */}
-        <div className="stats-grid">
-          {STATS.map((stat, i) => (
-            <StatCard key={stat.label} {...stat} active={active} isLast={i === STATS.length - 1} />
-          ))}
+          {/* Right Column: High-End Highlight Card */}
+          <div className="impact-right reveal delay-100">
+            <div className="featured-stat-card">
+              {/* Top Accent Gradient Bar */}
+              <div className="card-top-accent" />
+
+              {/* Stat Number Row */}
+              <div className="stat-number-row">
+                <span className="number-count">{count}</span>
+                <span className="number-suffix">+</span>
+              </div>
+
+              {/* Label */}
+              <h3 className="stat-label">
+                Years of Operations in Logistics, Import &amp; Export
+              </h3>
+
+              {/* Divider */}
+              <div className="stat-card-divider" />
+
+              {/* Description */}
+              <p className="stat-desc">
+                Managing end-to-end mineral supply chains, customs clearance protocols, and compliance-driven global transit across major continents since 2004.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <style>{`
-        .stats-header {
+      <style jsx>{`
+        .impact-grid {
           display: grid;
-          grid-template-columns: 1fr 1.2fr;
-          gap: 64px;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 60px;
           align-items: center;
-          margin-bottom: 72px;
-          padding-bottom: 56px;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .stats-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 4px;
+        .impact-title {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: clamp(2rem, 4vw, 2.75rem);
+          color: #ffffff;
+          line-height: 1.15;
+          letter-spacing: -1px;
+          margin: 0 0 24px;
+        }
+
+        .impact-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 1.0625rem;
+          color: rgba(255,255,255,0.5);
+          line-height: 1.85;
+          margin: 0 0 36px;
+        }
+
+        /* Highlight Card Styling */
+        .featured-stat-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          border-radius: 16px;
+          padding: 56px 48px;
+          position: relative;
           overflow: hidden;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
         }
 
-        /* Tablet: stack header, 2×2 stat grid */
-        @media (max-width: 900px) {
-          .stats-header {
+        .featured-stat-card::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at top left, rgba(var(--orange-rgb), 0.08) 0%, transparent 60%);
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+        }
+
+        .featured-stat-card:hover {
+          transform: translateY(-8px);
+          border-color: rgba(var(--orange-rgb), 0.25);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25), 0 0 30px rgba(var(--orange-rgb), 0.15);
+        }
+
+        .card-top-accent {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--orange-dark) 0%, var(--orange) 50%, var(--orange-light) 100%);
+        }
+
+        .stat-number-row {
+          display: flex;
+          align-items: baseline;
+          gap: 2px;
+          margin-bottom: 16px;
+        }
+
+        .number-count {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 800;
+          font-size: clamp(3.5rem, 8vw, 5.5rem);
+          color: #ffffff;
+          line-height: 1;
+          letter-spacing: -2px;
+          text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .number-suffix {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 800;
+          font-size: 2.5rem;
+          color: var(--orange);
+          line-height: 1;
+        }
+
+        .stat-label {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 600;
+          font-size: 1.15rem;
+          color: rgba(255, 255, 255, 0.95);
+          line-height: 1.4;
+          margin: 0 0 20px;
+        }
+
+        .stat-card-divider {
+          width: 48px;
+          height: 2px;
+          background: var(--orange);
+          margin-bottom: 20px;
+          border-radius: 1px;
+        }
+
+        .stat-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.45);
+          line-height: 1.7;
+          margin: 0;
+        }
+
+        /* Tablet Grid */
+        @media (max-width: 991px) {
+          .impact-grid {
             grid-template-columns: 1fr;
-            gap: 32px;
-            margin-bottom: 48px;
-            padding-bottom: 40px;
+            gap: 48px;
+          }
+          .impact-left {
+            text-align: center;
+          }
+          .impact-left > div {
+            justify-content: center;
+          }
+          .impact-left h2 br {
+            display: none;
+          }
+          .featured-stat-card {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 48px 36px;
           }
         }
 
-        @media (max-width: 768px) {
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          .stat-card-item {
-            padding: 32px 24px !important;
-          }
-          /* Fix borders for 2-col layout */
-          .stats-grid > div:nth-child(2) {
-            border-right: none !important;
-          }
-          .stats-grid > div:nth-child(3),
-          .stats-grid > div:nth-child(4) {
-            border-top: 1px solid rgba(255,255,255,0.1);
-          }
-          .stats-grid > div:nth-child(4) {
-            border-right: none !important;
-          }
-        }
-
-        /* Mobile: single column */
+        /* Mobile styles */
         @media (max-width: 480px) {
           #impact {
-            padding: 64px 0 !important;
+            padding: 80px 0 !important;
           }
-          .stats-header {
-            gap: 24px;
-            margin-bottom: 36px;
-            padding-bottom: 32px;
+          .impact-desc {
+            font-size: 0.9375rem;
+            margin-bottom: 28px;
           }
-          .stats-grid {
-            grid-template-columns: 1fr;
+          .featured-stat-card {
+            padding: 36px 24px;
           }
-          .stat-card-item {
-            padding: 28px 20px !important;
-            border-right: none !important;
-            border-top: 1px solid rgba(255,255,255,0.08) !important;
+          .number-count {
+            font-size: 3.5rem;
           }
-          .stats-grid > div:first-child .stat-card-item {
-            border-top: none !important;
+          .number-suffix {
+            font-size: 1.75rem;
+          }
+          .stat-label {
+            font-size: 1rem;
+            margin-bottom: 16px;
+          }
+          .stat-desc {
+            font-size: 0.85rem;
           }
         }
       `}</style>

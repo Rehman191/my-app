@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Manrope, Playfair_Display, Poppins } from "next/font/google";
 import SiteWidgets from "./components/SiteWidgets";
 import "./globals.css";
@@ -49,13 +48,6 @@ export default function RootLayout({
       <body suppressHydrationWarning className={manrope.className}>
         {children}
         <SiteWidgets />
-        <Script
-          id="reveal-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){function init(){try{var d=document.documentElement;var s=".reveal,.reveal-fade-right,.reveal-fade-left";var els=document.querySelectorAll(s);var h=window.innerHeight-80;for(var i=0;i<els.length;i++){var r=els[i].getBoundingClientRect();if(r.top<h&&r.bottom>0)els[i].classList.add("revealed");}d.classList.add("reveal-ready");}catch(e){}}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();})();`,
-          }}
-        />
       </body>
     </html>
   );

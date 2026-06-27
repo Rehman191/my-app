@@ -27,7 +27,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#home" className="navbar__logo" style={{ display: "flex", alignItems: "center" }}>
           <img 
-            src="/images/logo.png" 
+            src="/images/logo-light.png" 
             alt="AML Exports Logo" 
             style={{ height: "58px", width: "auto", objectFit: "contain" }}
           />
